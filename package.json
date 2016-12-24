@@ -1,0 +1,23 @@
+{
+  "name": "lgtm-image-stocker",
+  "version": "0.0.1",
+  "description": "Utility for LGTM image",
+  "main": "index.js",
+  "dependencies": {
+    "material-design-lite": "^1.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mizoguche/lgtm-image-stocker.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mizoguche/lgtm-image-stocker/issues"
+  },
+  "homepage": "https://github.com/mizoguche/lgtm-image-stocker#readme"
+}
