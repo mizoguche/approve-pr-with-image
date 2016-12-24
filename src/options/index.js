@@ -17,6 +17,13 @@ class Urls {
 }
 
 $(function () {
+    var urls = Urls.load().split("\n");
+    var url = urls[Math.random() * urls.length]
+    console.log(url)
+    $('main').text(url);
+});
+
+$(function () {
     var urls = Urls.load();
     $('#urls').val(urls.toString());
 
