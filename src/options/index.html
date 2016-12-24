@@ -4,9 +4,28 @@
     <link rel="stylesheet" href="/node_modules/material-design-lite/material.min.css">
     <script src="/node_modules/material-design-lite/material.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        main {
+            width: 80%;
+            margin: 16px auto;
+        }
+        textarea {
+            width: 100%;
+        }
+    </style>
     <title></title>
 </head>
 <body>
-
+<main class="container">
+    <div class="mdl-textfield mdl-js-textfield" style="width: 100%;">
+        <textarea class="mdl-textfield__input" type="text" rows= "5" id="urls" ></textarea>
+        <label class="mdl-textfield__label" for="urls">Input image urls(separated with line break)...</label>
+    </div>
+    <div>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+            Save
+        </button>
+    </div>
+</main>
 </body>
 </html>
