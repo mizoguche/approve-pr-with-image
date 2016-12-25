@@ -1,5 +1,5 @@
-# LGTM Image Stocker
-Chrome Extension for LGTM image.
+# Approve Pull Request with image
+Chrome Extension to approve pull request with LGTM image.
 
 ## Installation
 TODO: Describe the installation process

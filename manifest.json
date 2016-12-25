@@ -1,9 +1,9 @@
 {
-  "name": "LGTM image stocker",
+  "name": "Approve Pull Request with image",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "Utility for LGTM image",
-  "homepage_url": "https://github.com/mizoguche/lgtml-image-stocker",
+  "description": "Chrome extension to approve pull request with LGTM image",
+  "homepage_url": "https://github.com/mizoguche/approve-pr-with-image",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",

@@ -1,7 +1,7 @@
 {
-  "name": "lgtm-image-stocker",
+  "name": "approve-pr-with-image",
   "version": "0.0.1",
-  "description": "Utility for LGTM image",
+  "description": "Chrome extension to approve pull request with LGTM image",
   "main": "index.js",
   "dependencies": {
     "jquery": "^3.1.1",
@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mizoguche/lgtm-image-stocker.git"
+    "url": "git+https://github.com/mizoguche/approve-pr-with-image.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mizoguche/lgtm-image-stocker/issues"
+    "url": "https://github.com/mizoguche/approve-pr-with-image/issues"
   },
-  "homepage": "https://github.com/mizoguche/lgtm-image-stocker#readme"
+  "homepage": "https://github.com/mizoguche/approve-pr-with-image"
 }
