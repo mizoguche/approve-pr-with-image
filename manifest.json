@@ -12,15 +12,15 @@
   "default_locale": "en",
   "background": {
     "scripts": [
-      "dist/js/background.js"
+      "dist/background.js"
     ],
     "persistent": true
   },
-  "options_page": "src/options/index.html",
+  "options_page": "dist/index.html",
   "browser_action": {
     "default_icon": "icons/icon19.png",
     "default_title": "browser action demo",
-    "default_popup": "src/browser_action/browser_action.html"
+    "default_popup": "dist/browser_action.html"
   },
   "permissions": [
     "clipboardWrite",
@@ -32,7 +32,7 @@
         "https://github.com/*"
       ],
       "js": [
-        "dist/js/inject.js",
+        "dist/inject.js",
         "/node_modules/jquery/dist/jquery.min.js"
       ]
     }
