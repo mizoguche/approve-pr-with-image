@@ -31,10 +31,11 @@
   "content_scripts": [
     {
       "matches": [
-        "https://www.google.com/*"
+        "https://github.com/*"
       ],
       "js": [
-        "src/inject/inject.js"
+        "src/inject/inject.js",
+        "/node_modules/jquery/dist/jquery.min.js"
       ]
     }
   ]

@@ -1,13 +1,7 @@
-chrome.extension.sendMessage({}, function(response) {
-	var readyStateCheckInterval = setInterval(function() {
-	if (document.readyState === "complete") {
-		clearInterval(readyStateCheckInterval);
-
-		// ----------------------------------------------------------
-		// This part of the script triggers when page is done loading
-		console.log("Hello. This message was sent from scripts/inject.js");
-		// ----------------------------------------------------------
-
-	}
-	}, 10);
+var pullCommentQuery = "textarea[name='comment[body]']";
+var pullReviewSummaryQuery = "textarea[name='pull_request_review[body]']";
+chrome.runtime.onMessage.addListener((link, sender, sendResponse) => {
+    $(pullCommentQuery).val($(pullCommentQuery).val() + "\n" + link);
+    $(pullReviewSummaryQuery).val($(pullReviewSummaryQuery).val() + "\n" + link);
+    $("input[name='pull_request_review[event]'][value='approve']").prop("checked", true);
 });
