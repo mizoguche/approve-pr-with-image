@@ -2,10 +2,15 @@
 Chrome Extension to approve pull request with LGTM image.
 
 ## Installation
-TODO: Describe the installation process
+[Download from Chrome Web Store](https://chrome.google.com/webstore/detail/bmkigbjalmniajmclpbniddicijnapgh)
 
 ## Usage
-TODO: Write usage instructions
+1. Add image url from option
+1. Click browser action button when you approve pull request
+
+### Add image as LGTM image
+1. Right click image
+1. Click "Add this as LGTM image"
 
 ## License
-TODO: Write license
+MIT
