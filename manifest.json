@@ -23,11 +23,8 @@
     "default_popup": "src/browser_action/browser_action.html"
   },
   "permissions": [
-    "storage",
     "clipboardWrite",
-    "contextMenus",
-    "https://*/*",
-    "http://*/*"
+    "contextMenus"
   ],
   "content_scripts": [
     {
