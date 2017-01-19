@@ -9,33 +9,29 @@ export class Url {
 }
 
 export class Urls {
-    static loadRandom() {
-        var urls = Urls.load();
-        if (urls.length > 0) {
-            var index = Math.floor(Math.random() * urls.length);
-            return urls[index];
-        }
+    static loadRandom(callback) {
+        Urls.load(urls =>{
+            if (urls.length > 0) {
+                var index = Math.floor(Math.random() * urls.length);
+                callback(urls[index]);
+            }
+        });
     }
 
     static save(urlsString) {
         var urls = urlsString.split("\n").map(u => new Url(u));
-        localStorage.setItem('urls', JSON.stringify(urls));
+        chrome.storage.sync.set({'urls': urls}, () => console.log("save urls"));
     }
 
     static add(urlString) {
-        var urls = Urls.load();
-        urls.push(new Url(urlString));
-        localStorage.setItem('urls', JSON.stringify(urls));
+        Urls.load(urls => {
+            urls.push(new Url(urlString));
+            chrome.storage.sync.set({'urls': urls}, () => console.log("Added url: " + urlString));
+        });
     }
 
-    static load() {
-        var urlsJSONString = localStorage.getItem('urls');
-        if (!urlsJSONString) {
-            return [];
-        }
-
-        var urlsObj = JSON.parse(urlsJSONString);
-        return urlsObj.map(o => new Url(o.value));
+    static load(callback) {
+        chrome.storage.sync.get('urls', urlsObj => callback(urlsObj.urls.map(o => new Url(o.value))));
     }
 }
 

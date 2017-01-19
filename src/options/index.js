@@ -1,12 +1,14 @@
 import {Urls} from "../core/url"
 
 $(() => {
-    var urls = Urls.load();
-    if (urls.length > 0) {
-        $('textarea').text(urls.reduce((a, b) => {
-            return a + "\n" + b.value;
-        }));
-    }
+    Urls.load(obj => {
+        if (obj.length > 0) {
+            console.log(obj)
+            $('textarea').text(obj.reduce((a, b) => {
+                return a + "\n" + b.value;
+            }));
+        }
+    });
 
     $('#save').on('click', function () {
         var urls = Urls.save($('#urls').val());

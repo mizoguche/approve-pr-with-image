@@ -24,7 +24,8 @@
   },
   "permissions": [
     "clipboardWrite",
-    "contextMenus"
+    "contextMenus",
+    "storage"
   ],
   "content_scripts": [
     {
