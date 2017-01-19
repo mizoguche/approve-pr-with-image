@@ -18,6 +18,8 @@
     "webpack": "^1.14.0"
   },
   "scripts": {
+    "webpack": "webpack",
+    "build": "rm -rf dist build && mkdir dist && webpack && mkdir -p build/approve-pr-with-image && cp -r _locales/ dist icons manifest.json build/approve-pr-with-image/ && cd build && zip -r approve-pr-with-image.zip approve-pr-with-image",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
