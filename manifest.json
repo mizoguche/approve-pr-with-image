@@ -1,6 +1,6 @@
 {
   "name": "Approve Pull Request with image",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "manifest_version": 2,
   "description": "Chrome extension to approve pull request with LGTM image",
   "homepage_url": "https://github.com/mizoguche/approve-pr-with-image",
