@@ -32,5 +32,14 @@
   "bugs": {
     "url": "https://github.com/mizoguche/approve-pr-with-image/issues"
   },
-  "homepage": "https://github.com/mizoguche/approve-pr-with-image"
+  "homepage": "https://github.com/mizoguche/approve-pr-with-image",
+  "ava":{
+    "files":["test/**/*.js"],
+    "source":["src/**/*.js"],
+    "concurrency": 5,
+    "failFast": true,
+    "tap": true,
+    "powerAssert": true,
+    "babel": "inherit"
+  }
 }
