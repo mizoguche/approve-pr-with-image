@@ -9,6 +9,7 @@
     "material-design-lite": "^1.3.0"
   },
   "devDependencies": {
+    "ava": "^0.17.0",
     "babel-cli": "^6.18.0",
     "babel-loader": "^6.2.10",
     "babel-preset-env": "^1.1.4",
@@ -20,7 +21,7 @@
   "scripts": {
     "webpack": "webpack",
     "build": "rm -rf dist build && mkdir dist && webpack && mkdir -p build/approve-pr-with-image && cp -r _locales/ dist icons manifest.json build/approve-pr-with-image/ && cd build && zip -r approve-pr-with-image.zip approve-pr-with-image",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava"
   },
   "repository": {
     "type": "git",
