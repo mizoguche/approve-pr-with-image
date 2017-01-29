@@ -1,5 +1,7 @@
 import test from 'ava'
-import {Image, Images} from '../src/core/image'
+import sinon from 'sinon'
+import {Image, Images, ImageRepository} from '../src/core/image'
+import Storage from '../src/core/storage'
 
 test('create image instance', t => {
     const image = new Image('http://example.com/1.png');
@@ -38,4 +40,26 @@ test('get random image from images', t => {
     const result = /http:\/\/example\.com\/(\d)\.png/.exec(img.src)
     t.not(result, null)
     t.true(0 < parseInt(result[1]) && parseInt(result[1]) <= 5)
+});
+
+test('fetch from image repository', t => {
+    const storage = new Storage()
+    const mock = sinon.mock(storage)
+    const args = () => {}
+    mock.expects("fetch").once().withArgs(args)
+
+    const repo = new ImageRepository(storage)
+    repo.fetch(args)
+    t.true(mock.verify())
+});
+
+test('store from image repository', t => {
+    const storage = new Storage()
+    const mock = sinon.mock(storage)
+    const args = new Images()
+    mock.expects("store").once().withArgs(args)
+
+    const repo = new ImageRepository(storage)
+    repo.store(args)
+    t.true(mock.verify())
 });

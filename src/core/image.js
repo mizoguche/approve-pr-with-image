@@ -36,29 +36,17 @@ export class Images {
 }
 
 export class ImageRepository {
-    static loadRandom(callback) {
-        ImageRepository.load(urls => {
-            if (urls.length > 0) {
-                var index = Math.floor(Math.random() * urls.length);
-                callback(urls[index]);
-            }
-        });
+    storage: Storage
+
+    constructor(storage: Storage) {
+        this.storage = storage
     }
 
-    static save(urlsString) {
-        var urls = urlsString.split("\n").map(u => new Url(u));
-        chrome.storage.sync.set({'urls': urls}, () => console.log("save urls"));
+    fetch(callback) {
+        this.storage.fetch(callback)
     }
 
-    static add(urlString) {
-        ImageRepository.load(urls => {
-            urls.push(new Url(urlString));
-            chrome.storage.sync.set({'urls': urls}, () => console.log("Added url: " + urlString));
-        });
-    }
-
-    static load(callback) {
-        chrome.storage.sync.get('urls', urlsObj => callback(urlsObj.urls.map(o => new Url(o.value))));
+    store(images: Images) {
+        this.storage.store(images)
     }
 }
-
