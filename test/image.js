@@ -1,6 +1,8 @@
 import test from 'ava'
+import {Image} from '../src/core/image'
 
 test('create image instance', t => {
-    t.pass();
+    const image = new Image('src');
+    t.is(image.src, 'src')
 });
 

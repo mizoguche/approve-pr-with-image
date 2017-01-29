@@ -1,10 +1,6 @@
-export class Url {
-    constructor(value) {
-        this.value = value;
-    }
-
-    toString() {
-        return this.value;
+export class Image {
+    constructor(src) {
+        this.src = src;
     }
 }
 

@@ -1,4 +1,4 @@
-import {Urls} from "../core/url"
+import {Urls} from "../core/image"
 
 chrome.contextMenus.create({
     id: 'ApproveLGTM',
