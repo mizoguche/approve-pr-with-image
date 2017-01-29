@@ -1,4 +1,4 @@
-import {ImageRepository} from "../core/image"
+import {imageRepository, Image} from "../core/image"
 
 chrome.contextMenus.create({
     id: 'ApproveLGTM',
@@ -6,7 +6,10 @@ chrome.contextMenus.create({
     contexts: ['image'],
     onclick: (info, tab) => {
         if (info.menuItemId === 'ApproveLGTM') {
-            ImageRepository.add(info.srcUrl);
+            imageRepository.fetch(images => {
+                images.add(new Image(info.srcUrl))
+                imageRepository.store(images)
+            })
         }
     }
 });

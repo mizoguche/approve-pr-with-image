@@ -1,4 +1,4 @@
-import {ImageRepository} from "../core/image"
+import {imageRepository} from "../core/image"
 
 var copy = () => {
     $('#clipboard').show();
@@ -11,25 +11,28 @@ var copy = () => {
 
 // TODO: Use callback that MDL snackbar is ready
 setTimeout(() => {
-    ImageRepository.loadRandom(imageUrl =>{
-        if (!imageUrl) {
+    imageRepository.fetch(images => {
+        if (images.isEmpty()) {
             chrome.runtime.openOptionsPage();
             return;
         }
 
-        $('main').empty().append('<img style="max-width: 500px; max-height: 500px;" src="' + imageUrl + '">');
-        var copyString = '[![LGTM](' + imageUrl + ')](' + imageUrl + ')';
+        const img = images.getRandom()
+        console.log(img)
+        const imageUrl = img.src
+        $('main').empty().append('<img style="min-width: 100px; min-height: 100px;max-width: 500px; max-height: 500px;" src="' + imageUrl + '">');
+        const copyString = '[![LGTM](' + imageUrl + ')](' + imageUrl + ')';
         $('#clipboard').text(copyString);
         copy();
-        var snackbarContainer = document.querySelector('#copy-message');
+        const snackbarContainer = document.querySelector('#copy-message');
         snackbarContainer.MaterialSnackbar.showSnackbar({message: 'Copied to clipboard.'})
 
         chrome.tabs.query({"active": true}, function (tab) {
-            var tabId = tab[0].id;
+            const tabId = tab[0].id;
             chrome.tabs.sendMessage(tabId, copyString, (response) => {
                 console.log("Image markdown pasted.");
             });
         });
-    });
+    })
 }, 10)
 

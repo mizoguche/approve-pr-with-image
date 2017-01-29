@@ -1,18 +1,18 @@
-import {ImageRepository} from "../core/image"
+import {imageRepository, Images} from "../core/image"
 
 $(() => {
-    ImageRepository.load(obj => {
-        if (obj.length > 0) {
-            console.log(obj)
-            $('textarea').text(obj.reduce((a, b) => {
-                return a + "\n" + b.value;
-            }));
-        }
-    });
+    imageRepository.fetch(images => {
+        let url = ''
+        console.log(images)
+        images.images.forEach(img => url += img.src + "\n")
+        $('textarea').text(url);
+    })
 
     $('#save').on('click', function () {
-        var urls = ImageRepository.save($('#urls').val());
-        var snackbarContainer = document.querySelector('#save-message');
-        snackbarContainer.MaterialSnackbar.showSnackbar({message: 'Saved.'})
+        var images = new Images($('#urls').val());
+        imageRepository.store(images, () => {
+            var snackbarContainer = document.querySelector('#save-message');
+            snackbarContainer.MaterialSnackbar.showSnackbar({message: 'Saved.'})
+        })
     });
 });

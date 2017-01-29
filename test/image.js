@@ -23,6 +23,15 @@ test('create images instance', t => {
     t.is(images.images[0].src, 'http://example.com/1.png')
 });
 
+test('create images with url text', t => {
+    const images = new Images("http://example.com/1.png\n" +
+        "http://example.com/2.png\n" +
+        "not html line\n" +
+        "http://example.com/3.png\n");
+    t.is(images.images.length, 3)
+    t.is(images.images[0].src, 'http://example.com/1.png')
+});
+
 test('check images are available', t => {
     const images = new Images();
     t.true(images.isEmpty())

@@ -1,3 +1,4 @@
+import ChromeStorage from "./storage";
 export class Image {
     src: string
 
@@ -13,8 +14,19 @@ export class Image {
 export class Images {
     images: Image[]
 
-    constructor() {
+    constructor(text: string) {
         this.images = []
+        if (!text) {
+            return
+        }
+        const lines = text.split("\n")
+        lines.forEach(l => {
+            try {
+                const img = new Image(l)
+                this.images.push(img)
+            } catch (e) {
+            }
+        })
     }
 
     add(image: Image) {
@@ -46,7 +58,9 @@ export class ImageRepository {
         this.storage.fetch(callback)
     }
 
-    store(images: Images) {
-        this.storage.store(images)
+    store(images: Images, callback: Function) {
+        this.storage.store(images, callback)
     }
 }
+
+export const imageRepository = new ImageRepository(new ChromeStorage())
