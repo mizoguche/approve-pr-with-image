@@ -5,7 +5,6 @@ module.exports = {
     entry: {
         'background': './bg/background.js',
         'browser_action': './browser_action/browser_action.js',
-        'core': './core/core.js',
         'inject': './inject/inject.js',
         'options': './options/index.js'
     },
