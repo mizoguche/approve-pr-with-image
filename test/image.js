@@ -18,6 +18,11 @@ test('create images instance', t => {
     t.is(images.images[0].src, 'http://example.com/1.png')
 });
 
+test('check images are available', t => {
+    const images = new Images();
+    t.true(images.isEmpty())
+});
+
 test('get random image from images', t => {
     const images = new Images();
     images.add(new Image('http://example.com/1.png'))

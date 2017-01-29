@@ -9,26 +9,31 @@ export class Image {
 export class Images {
     images: Image[]
 
-    constructor(){
+    constructor() {
         this.images = []
     }
 
-    add(image: Image){
+    add(image: Image) {
         this.images.push(image)
     }
 
-    getRandom(){
-        if (this.images.length > 0) {
-            var index = Math.floor(Math.random() * this.images.length)
-            return this.images[index]
+    getRandom() {
+        if (!this.isEmpty()) {
+            throw new Error("this instance have no image")
         }
-        return null
+
+        var index = Math.floor(Math.random() * this.images.length)
+        return this.images[index]
+    }
+
+    isEmpty() {
+        return this.images.length == 0
     }
 }
 
 export class ImageRepository {
     static loadRandom(callback) {
-        ImageRepository.load(urls =>{
+        ImageRepository.load(urls => {
             if (urls.length > 0) {
                 var index = Math.floor(Math.random() * urls.length);
                 callback(urls[index]);
