@@ -1,18 +1,20 @@
-import {Urls} from "../core/url"
+import jQuery from 'jquery';
+import { imageRepository, Images } from '../core/image';
 
-$(() => {
-    Urls.load(obj => {
-        if (obj.length > 0) {
-            console.log(obj)
-            $('textarea').text(obj.reduce((a, b) => {
-                return a + "\n" + b.value;
-            }));
-        }
+jQuery(() => {
+  imageRepository.fetch((images) => {
+    let url = '';
+    images.images.forEach((img) => {
+      url += `${img.src}\n`;
     });
+    jQuery('textarea').text(url);
+  });
 
-    $('#save').on('click', function () {
-        var urls = Urls.save($('#urls').val());
-        var snackbarContainer = document.querySelector('#save-message');
-        snackbarContainer.MaterialSnackbar.showSnackbar({message: 'Saved.'})
+  jQuery('#save').on('click', () => {
+    const images = new Images(jQuery('#urls').val());
+    imageRepository.store(images, () => {
+      const snackbarContainer = document.querySelector('#save-message');
+      snackbarContainer.MaterialSnackbar.showSnackbar({ message: 'Saved.' });
     });
+  });
 });
