@@ -2,6 +2,10 @@ export class Image {
     src: string
 
     constructor(src) {
+        const re = /https?:\/\/[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/
+        if (!re.exec(src)) {
+            throw new Error("src must be url")
+        }
         this.src = src;
     }
 }
@@ -18,11 +22,11 @@ export class Images {
     }
 
     getRandom() {
-        if (!this.isEmpty()) {
+        if (this.isEmpty()) {
             throw new Error("this instance have no image")
         }
 
-        var index = Math.floor(Math.random() * this.images.length)
+        const index = Math.floor(Math.random() * this.images.length)
         return this.images[index]
     }
 

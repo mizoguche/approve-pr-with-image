@@ -2,13 +2,16 @@ import test from 'ava'
 import {Image, Images} from '../src/core/image'
 
 test('create image instance', t => {
-    const image = new Image('src');
-    t.is(image.src, 'src')
+    const image = new Image('http://example.com/1.png');
+    t.is(image.src, 'http://example.com/1.png')
+});
+
+test('image src must be validate', t => {
+    t.throws(() => new Image('not url'))
 });
 
 test('create images instance', t => {
     const images = new Images();
-    const image = new Image('src');
     images.add(new Image('http://example.com/1.png'))
     images.add(new Image('http://example.com/2.png'))
     images.add(new Image('http://example.com/3.png'))
