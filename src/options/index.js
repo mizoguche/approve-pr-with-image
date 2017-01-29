@@ -1,7 +1,7 @@
-import {Urls} from "../core/image"
+import {ImageRepository} from "../core/image"
 
 $(() => {
-    Urls.load(obj => {
+    ImageRepository.load(obj => {
         if (obj.length > 0) {
             console.log(obj)
             $('textarea').text(obj.reduce((a, b) => {
@@ -11,7 +11,7 @@ $(() => {
     });
 
     $('#save').on('click', function () {
-        var urls = Urls.save($('#urls').val());
+        var urls = ImageRepository.save($('#urls').val());
         var snackbarContainer = document.querySelector('#save-message');
         snackbarContainer.MaterialSnackbar.showSnackbar({message: 'Saved.'})
     });

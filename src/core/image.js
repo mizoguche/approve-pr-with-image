@@ -1,12 +1,34 @@
 export class Image {
+    src: string
+
     constructor(src) {
         this.src = src;
     }
 }
 
-export class Urls {
+export class Images {
+    images: Image[]
+
+    constructor(){
+        this.images = []
+    }
+
+    add(image: Image){
+        this.images.push(image)
+    }
+
+    getRandom(){
+        if (this.images.length > 0) {
+            var index = Math.floor(Math.random() * this.images.length)
+            return this.images[index]
+        }
+        return null
+    }
+}
+
+export class ImageRepository {
     static loadRandom(callback) {
-        Urls.load(urls =>{
+        ImageRepository.load(urls =>{
             if (urls.length > 0) {
                 var index = Math.floor(Math.random() * urls.length);
                 callback(urls[index]);
@@ -20,7 +42,7 @@ export class Urls {
     }
 
     static add(urlString) {
-        Urls.load(urls => {
+        ImageRepository.load(urls => {
             urls.push(new Url(urlString));
             chrome.storage.sync.set({'urls': urls}, () => console.log("Added url: " + urlString));
         });

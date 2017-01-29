@@ -1,4 +1,4 @@
-import {Urls} from "../core/image"
+import {ImageRepository} from "../core/image"
 
 var copy = () => {
     $('#clipboard').show();
@@ -11,7 +11,7 @@ var copy = () => {
 
 // TODO: Use callback that MDL snackbar is ready
 setTimeout(() => {
-    Urls.loadRandom(imageUrl =>{
+    ImageRepository.loadRandom(imageUrl =>{
         if (!imageUrl) {
             chrome.runtime.openOptionsPage();
             return;
