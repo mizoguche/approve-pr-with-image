@@ -1,6 +1,6 @@
 {
   "name": "Approve Pull Request with image",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "manifest_version": 2,
   "description": "Chrome extension to approve pull request with LGTM image",
   "homepage_url": "https://github.com/mizoguche/approve-pr-with-image",
@@ -9,7 +9,6 @@
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "default_locale": "en",
   "background": {
     "scripts": [
       "dist/background.js"
@@ -33,8 +32,7 @@
         "https://github.com/*"
       ],
       "js": [
-        "dist/inject.js",
-        "dist/jquery.min.js"
+        "dist/inject.js"
       ]
     }
   ]

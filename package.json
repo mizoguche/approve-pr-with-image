@@ -1,6 +1,6 @@
 {
   "name": "approve-pr-with-image",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Chrome extension to approve pull request with LGTM image",
   "main": "index.js",
   "dependencies": {
@@ -33,7 +33,7 @@
   },
   "scripts": {
     "webpack": "webpack",
-    "build": "rm -rf dist build && mkdir dist && webpack && mkdir -p build/approve-pr-with-image && cp -r _locales/ dist icons manifest.json build/approve-pr-with-image/ && cd build && zip -r approve-pr-with-image.zip approve-pr-with-image",
+    "build": "rm -rf dist build && mkdir dist && webpack && mkdir -p build/approve-pr-with-image && cp -r dist icons manifest.json build/approve-pr-with-image/ && cd build && zip -r approve-pr-with-image.zip approve-pr-with-image",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "test": "ava",
     "lint": "eslint src test"
