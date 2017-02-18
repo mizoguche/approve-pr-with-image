@@ -1,5 +1,5 @@
 import jQuery from 'jquery';
-import { imageRepository } from '../core/image';
+import { imageRepository } from '../domain/image';
 
 const copy = () => {
   jQuery('#clipboard').show();

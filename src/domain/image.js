@@ -1,6 +1,7 @@
 // @flow
 
 import ChromeStorage from './storage';
+import Rx from 'rxjs/Rx';
 
 export class Image {
   src: string;
@@ -58,12 +59,21 @@ export class ImageRepository {
     this.storage = storage;
   }
 
-  fetch(callback) {
-    this.storage.fetch(callback);
+  fetch(): Rx.Observable<Images> {
+    return Rx.Observable.create((observer) => {
+      this.storage.fetch((images) => {
+        observer.next(images);
+        observer.complete();
+      });
+    });
   }
 
-  store(images: Images, callback: Function) {
-    this.storage.store(images, callback);
+  store(images: Images): Rx.Observable {
+    return Rx.Observable.create((observer) => {
+      this.storage.save(images, () => {
+        observer.complete();
+      });
+    });
   }
 }
 

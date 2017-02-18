@@ -1,7 +1,7 @@
 import test from 'ava';
 import sinon from 'sinon';
-import { Image, Images, ImageRepository } from '../src/core/image';
-import Storage from '../src/core/storage';
+import { Image, Images, ImageRepository } from '../src/domain/image';
+import Storage from '../src/domain/storage';
 
 test('create image instance', (t) => {
   const image = new Image('http://example.com/1.png');

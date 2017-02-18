@@ -1,4 +1,4 @@
-import { imageRepository, Image } from '../core/image';
+import { imageRepository, Image } from '../domain/image';
 
 chrome.contextMenus.create({
   id: 'ApproveLGTM',
