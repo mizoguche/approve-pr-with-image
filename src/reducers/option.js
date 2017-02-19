@@ -7,7 +7,8 @@ import {
   SAVE_IMAGES,
   // ON_SAVE_IMAGES,
 } from '../actions/option';
-import { Images, imageRepository } from '../domain/image';
+import Images from '../domain/image/Images';
+import { imageRepository } from '../application/repositories';
 import { OptionState, OptionAction } from '../types/Option';
 
 const buildBulkUrls = images => images.images.reduce((a, b) => `${a}${b.src}\n`, '');

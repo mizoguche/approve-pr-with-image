@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { Images } from '../domain/image';
+import Images from '../domain/image/Images';
 import { requestFetchImages } from '../actions/option';
 import BulkUrlTextArea from '../components/BulkUrlTextArea';
 import OptionSaveButton from '../components/OptionSaveButton';

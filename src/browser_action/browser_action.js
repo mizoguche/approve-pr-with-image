@@ -1,5 +1,6 @@
+// @flow
 import jQuery from 'jquery';
-import { imageRepository } from '../domain/image';
+import { imageRepository } from '../application/repositories';
 
 const copy = () => {
   jQuery('#clipboard').show();

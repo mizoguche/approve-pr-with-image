@@ -1,4 +1,4 @@
-import { Images } from './image';
+import Images from '../image/Images';
 
 export default class ChromeStorage {
   constructor() {
