@@ -4,6 +4,9 @@ build:
   steps:
     - npm-install
     - script:
+      name: Flowtype
+      code: npm run flow
+    - script:
       name: Lint
       code: npm run lint
     - script:
