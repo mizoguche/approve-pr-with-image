@@ -17,3 +17,4 @@ build:
       packages: libssl-dev ruby
     - wantedly/pretty-slack-notify:
       webhook_url: $SLACK_WEBHOOK_URL
+      notify_on: "failed"
