@@ -9,20 +9,21 @@ import {
 } from '../actions/option';
 import Images from '../domain/image/Images';
 import { imageRepository } from '../application/repositories';
-import { OptionState, OptionAction } from '../types/Option';
+import type { OptionState, OptionAction, OptionPayload } from '../types/Option';
 
 const buildBulkUrls = images => images.images.reduce((a, b) => `${a}${b.src}\n`, '');
 
-export default (state: OptionState = { images: new Images(), bulkUrls: '' }, action: OptionAction): OptionState => {
+const defaultState: OptionState = { images: new Images(''), bulkUrls: '' };
+export default (state: OptionState = defaultState, action: OptionAction): OptionState => {
   switch (action.type) {
     case FETCH_IMAGES:
       return { images: state.images, bulkUrls: state.bulkUrls };
     case ON_FETCH_IMAGES:
-      return { images: action.payload, bulkUrls: buildBulkUrls(action.payload) };
+      return { images: action.payload.images, bulkUrls: buildBulkUrls(action.payload.images) };
     case UPDATE_BULK_URLS:
-      return { images: state.images, bulkUrls: action.payload };
+      return { images: state.images, bulkUrls: action.payload.bulkUrls };
     case SAVE_IMAGES:
-      return { images: action.payload, bulkUrls: state.bulkUrls };
+      return { images: action.payload.images, bulkUrls: state.bulkUrls };
     default: {
       return state;
     }
@@ -30,8 +31,9 @@ export default (state: OptionState = { images: new Images(), bulkUrls: '' }, act
 };
 
 const fetchImageMap = () => imageRepository
-  .fetch().map(images => ({ type: ON_FETCH_IMAGES, payload: images }));
+  .fetch().map(images => ({ type: ON_FETCH_IMAGES, payload: { images } }));
 
-export const fetchImageEpic = action$ => action$
+export const fetchImageEpic: Function = action$ => action$
   .ofType(FETCH_IMAGES).mergeMap(() => fetchImageMap());
 
+declare type OptionEpic = Function;

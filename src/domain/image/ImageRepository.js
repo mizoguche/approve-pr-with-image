@@ -1,5 +1,7 @@
 // @flow
 import Rx from 'rxjs/Rx';
+import Images from './Images';
+import type Storage from '../storage/Storage';
 
 export default class ImageRepository {
   storage: Storage;

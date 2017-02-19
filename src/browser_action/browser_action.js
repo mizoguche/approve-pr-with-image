@@ -26,10 +26,11 @@ jQuery(document).ready(() => {
       const copyString = `[![LGTM](${imageUrl})](${imageUrl})`;
       jQuery('#clipboard').text(copyString);
       copy();
-      document.querySelector('#copy-message').MaterialSnackbar.showSnackbar({ message: 'Copied to clipboard.' });
+      const snackbar: any = document.querySelector('#copy-message')
+      snackbar.MaterialSnackbar.showSnackbar({ message: 'Copied to clipboard.' });
 
-      chrome.tabs.query({ active: true }, (tab) => {
-        const tabId = tab[0].id;
+      chrome.tabs.query({ active: true }, (tab: any) => {
+        const tabId: number = tab[0].id;
         chrome.tabs.sendMessage(tabId, copyString, () => {
         });
       });

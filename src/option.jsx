@@ -9,6 +9,7 @@ import optionReducer, { fetchImageEpic } from './reducers/option';
 import BulkUrlOption from './containers/BulkUrlOption';
 
 const epickMiddleware = createEpicMiddleware(fetchImageEpic);
+
 const store = createStore(optionReducer, applyMiddleware(epickMiddleware));
 
 render(

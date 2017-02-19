@@ -21,13 +21,20 @@ export interface OptionPayload {
   bulkUrls: string;
 }
 
-export interface FetchImagesAction extends Action {
+export interface OptionImagesPayload {
+  images: Images;
 }
 
-export interface SaveImagesAction extends PayloadAction<OptionPayload> {
+export interface OptionUrlPayload {
+  bulkUrls: string;
 }
 
-export interface UpdateBulkUrlsAction extends PayloadAction<OptionPayload> {
+export interface SaveImagesAction extends PayloadAction<OptionImagesPayload> {
 }
 
-export type OptionAction = FetchImagesAction & SaveImagesAction & UpdateBulkUrlsAction;
+export interface UpdateBulkUrlsAction extends PayloadAction<OptionUrlPayload> {
+}
+
+export interface OptionAction extends Action {
+  payload: OptionPayload;
+}

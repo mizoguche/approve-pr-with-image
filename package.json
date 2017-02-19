@@ -17,7 +17,7 @@
     "rxjs": "^5.0.3"
   },
   "devDependencies": {
-    "ava": "^0.17.0",
+    "ava": "^0.18.2",
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
@@ -37,7 +37,9 @@
     "eslint-plugin-jsx-a11y": "^3.0.2",
     "eslint-plugin-react": "^6.9.0",
     "eslint-plugin-security": "^1.2.0",
+    "fbjs": "^0.8.9",
     "flow-bin": "^0.38.0",
+    "flow-interfaces-chrome": "^0.3.0",
     "sinon": "^1.17.7",
     "webpack": "^1.14.0"
   },

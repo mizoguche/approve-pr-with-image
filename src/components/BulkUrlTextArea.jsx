@@ -12,9 +12,9 @@ export default class BulkUrlTextArea extends Component {
     bulkUrls: string,
   };
 
-  // handleChange() {
+  handleChange() {
     // TODO: handle change
-  // }
+  }
 
   render() {
     const { bulkUrls } = this.props;
