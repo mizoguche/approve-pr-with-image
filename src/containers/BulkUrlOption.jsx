@@ -25,9 +25,11 @@ class BulkUrlOption extends Component {
 
   render() {
     return (
-      <div>
-        <BulkUrlTextArea images={this.props.images} bulkUrls={this.props.bulkUrls} />
-        <OptionSaveButton />
+      <div className="mdl-layout__content mdl-grid" style={{'justify-content': 'center'}}>
+        <div className="mdl-cell mdl-cell--9-col">
+          <BulkUrlTextArea images={this.props.images} bulkUrls={this.props.bulkUrls} />
+          <OptionSaveButton />
+        </div>
       </div>
     );
   }

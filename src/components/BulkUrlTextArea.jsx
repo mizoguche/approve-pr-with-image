@@ -19,8 +19,8 @@ export default class BulkUrlTextArea extends Component {
   render() {
     const { bulkUrls } = this.props;
     return (
-      <div className="mdl-textfield mdl-js-textfield">
-        <textarea className="mdl-textfield__input" rows="5" value={bulkUrls} onChange={this.handleChange} />
+      <div className="mdl-textfield mdl-js-textfield" style={ { width: '100%' } }>
+        <textarea className="mdl-textfield__input" rows="10" value={bulkUrls} onChange={this.handleChange} />
         <label className="mdl-textfield__label" htmlFor="urls">
           Input image urls(separated with line break)...
         </label>
