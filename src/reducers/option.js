@@ -3,12 +3,12 @@ import {
   FETCH_IMAGES,
   ON_FETCH_IMAGES,
   UPDATE_BULK_URLS,
-  ON_UPDATE_BULK_URLS,
+  // ON_UPDATE_BULK_URLS,
   SAVE_IMAGES,
-  ON_SAVE_IMAGES,
+  // ON_SAVE_IMAGES,
 } from '../actions/option';
 import { Images, imageRepository } from '../domain/image';
-import { OptionState, OptionAction } from '../types/option';
+import { OptionState, OptionAction } from '../types/Option';
 
 const buildBulkUrls = images => images.images.reduce((a, b) => `${a}${b.src}\n`, '');
 
@@ -28,7 +28,9 @@ export default (state: OptionState = { images: new Images(), bulkUrls: '' }, act
   }
 };
 
-const fetchImageMap = () => imageRepository.fetch().map(images => ({ type: ON_FETCH_IMAGES, payload: images }));
+const fetchImageMap = () => imageRepository
+  .fetch().map(images => ({ type: ON_FETCH_IMAGES, payload: images }));
 
-export const fetchImageEpic = action$ => action$.ofType(FETCH_IMAGES).mergeMap(() => fetchImageMap());
+export const fetchImageEpic = action$ => action$
+  .ofType(FETCH_IMAGES).mergeMap(() => fetchImageMap());
 

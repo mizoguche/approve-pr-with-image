@@ -6,7 +6,7 @@ module.exports = {
     'background': './bg/background.js',
     'browser_action': './browser_action/browser_action.js',
     'inject': './inject/inject.js',
-    'options': './option.js',
+    'options': './option.jsx',
   },
   output: {
     path: __dirname + '/dist',

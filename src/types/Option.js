@@ -1,5 +1,5 @@
 // @flow
-import { Images } from "../domain/image";
+import { Images } from '../domain/image';
 
 export interface Action {
   type: string;

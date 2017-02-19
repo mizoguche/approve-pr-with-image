@@ -19,5 +19,8 @@
   "globals": {
     "chrome": false
   },
-  "rules": {}
+  "rules": {
+    "flowtype/define-flow-type": 1,
+    "flowtype/use-flow-type": 1
+  }
 }

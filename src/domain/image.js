@@ -1,7 +1,7 @@
 // @flow
 
-import ChromeStorage from './storage';
 import Rx from 'rxjs/Rx';
+import ChromeStorage from './storage';
 
 export class Image {
   src: string;

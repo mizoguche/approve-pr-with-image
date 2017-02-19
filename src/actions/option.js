@@ -1,6 +1,6 @@
 // @flow
 import { Images } from '../domain/image';
-import { FetchImagesAction, UpdateBulkUrlsAction, SaveImagesAction } from '../types/option';
+import { FetchImagesAction, UpdateBulkUrlsAction, SaveImagesAction } from '../types/Option';
 
 export const FETCH_IMAGES = 'OPTION__FETCH_IMAGES';
 export const ON_FETCH_IMAGES = 'OPTION__ON_FETCH_IMAGES';

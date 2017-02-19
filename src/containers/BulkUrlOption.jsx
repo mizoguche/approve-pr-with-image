@@ -13,15 +13,15 @@ class BulkUrlOption extends Component {
     this.props = props;
   }
 
+  componentWillMount() {
+    this.props.fetchImages();
+  }
+
   props: {
     images: Images,
     bulkUrls: string,
     fetchImages: Function,
   };
-
-  componentWillMount(){
-    this.props.fetchImages();
-  }
 
   render() {
     return (
