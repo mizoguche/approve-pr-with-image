@@ -8,7 +8,7 @@ build:
       code: npm run lint
     - script:
       name: Test
-      code: npm run test
+      code: npm test
     - script:
       name: Build
       code: npm run build

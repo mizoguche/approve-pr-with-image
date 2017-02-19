@@ -66,8 +66,8 @@
       "src/**/*.js"
     ],
     "concurrency": 5,
-    "failFast": true,
-    "tap": true,
+    "failFast": false,
+    "tap": false,
     "powerAssert": true,
     "require": [
       "babel-register"

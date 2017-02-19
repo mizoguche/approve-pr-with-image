@@ -1,9 +1,10 @@
+// @flow
 import test from 'ava';
 import sinon from 'sinon';
 import Image from '../src/domain/image/Image';
 import Images from '../src/domain/image/Images';
-import { ImageRepository } from '../src/domain/image/ImageRepository';
-import Storage from '../src/domain/storage/Storage';
+import ImageRepository from '../src/domain/image/ImageRepository';
+import ChromeStorage from '../src/domain/storage/ChromeStorage';
 
 test('create image instance', (t) => {
   const image = new Image('http://example.com/1.png');
@@ -57,24 +58,19 @@ test('get random image from images', (t) => {
 });
 
 test('fetch from image repository', (t) => {
-  const storage = new Storage();
-  const mock = sinon.mock(storage);
-  const args = () => {
-  };
-  mock.expects('fetch').once().withArgs(args);
-
-  const repo = new ImageRepository(storage);
-  repo.fetch(args);
-  t.true(mock.verify());
+  const obj = {fetch: function() { }};
+  const spy = sinon.spy(obj, 'fetch');
+  const args = () =>{};
+  const repo = new ImageRepository(obj);
+  repo.fetch(args).subscribe();
+  t.true(spy.calledOnce);
 });
 
 test('store from image repository', (t) => {
-  const storage = new Storage();
-  const mock = sinon.mock(storage);
+  const obj = {save: function() { }};
+  const spy = sinon.spy(obj, 'save');
   const args = new Images();
-  mock.expects('store').once().withArgs(args);
-
-  const repo = new ImageRepository(storage);
-  repo.store(args);
-  t.true(mock.verify());
+  const repo = new ImageRepository(obj);
+  repo.store(args).subscribe();
+  t.true(spy.calledOnce);
 });
