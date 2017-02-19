@@ -14,11 +14,11 @@ export function requestFetchImages(): Action {
 }
 
 export function requestUpdateBulkUrls(bulkUrls: string): UpdateBulkUrlsAction {
-  const payload: OptionUrlPayload = { bulkUrls }
-  return { type: UPDATE_BULK_URLS, payload: payload };
+  const payload: OptionUrlPayload = { bulkUrls };
+  return { type: UPDATE_BULK_URLS, payload };
 }
 
 export function requestSaveImages(images: Images): SaveImagesAction {
   const payload: OptionImagesPayload = { images };
-  return { type: SAVE_IMAGES, payload: payload };
+  return { type: SAVE_IMAGES, payload };
 }

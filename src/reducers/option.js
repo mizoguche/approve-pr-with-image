@@ -9,7 +9,7 @@ import {
 } from '../actions/option';
 import Images from '../domain/image/Images';
 import { imageRepository } from '../application/repositories';
-import type { OptionState, OptionAction, OptionPayload } from '../types/Option';
+import type { OptionState, OptionAction } from '../types/Option';
 
 const buildBulkUrls = images => images.images.reduce((a, b) => `${a}${b.src}\n`, '');
 
@@ -35,5 +35,3 @@ const fetchImageMap = () => imageRepository
 
 export const fetchImageEpic: Function = action$ => action$
   .ofType(FETCH_IMAGES).mergeMap(() => fetchImageMap());
-
-declare type OptionEpic = Function;

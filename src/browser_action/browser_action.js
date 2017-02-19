@@ -26,7 +26,7 @@ jQuery(document).ready(() => {
       const copyString = `[![LGTM](${imageUrl})](${imageUrl})`;
       jQuery('#clipboard').text(copyString);
       copy();
-      const snackbar: any = document.querySelector('#copy-message')
+      const snackbar: any = document.querySelector('#copy-message');
       snackbar.MaterialSnackbar.showSnackbar({ message: 'Copied to clipboard.' });
 
       chrome.tabs.query({ active: true }, (tab: any) => {
