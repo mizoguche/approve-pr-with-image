@@ -1,0 +1,14 @@
+box: node:4.2.6-slim
+
+build:
+  steps:
+    - npm-install
+    - script:
+      name: Lint
+      code: npm run lint
+    - script:
+      name: Test
+      code: npm run test
+    - script:
+      name: Build
+      code: npm run build
