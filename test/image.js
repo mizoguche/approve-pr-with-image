@@ -4,7 +4,6 @@ import sinon from 'sinon';
 import Image from '../src/domain/image/Image';
 import Images from '../src/domain/image/Images';
 import ImageRepository from '../src/domain/image/ImageRepository';
-import ChromeStorage from '../src/domain/storage/ChromeStorage';
 
 test('create image instance', (t) => {
   const image = new Image('http://example.com/1.png');
@@ -58,16 +57,23 @@ test('get random image from images', (t) => {
 });
 
 test('fetch from image repository', (t) => {
-  const obj = {fetch: function() { }};
+  const obj = {
+    fetch: () => {
+    },
+  };
   const spy = sinon.spy(obj, 'fetch');
-  const args = () =>{};
+  const args = () => {
+  };
   const repo = new ImageRepository(obj);
   repo.fetch(args).subscribe();
   t.true(spy.calledOnce);
 });
 
 test('store from image repository', (t) => {
-  const obj = {save: function() { }};
+  const obj = {
+    save: () => {
+    },
+  };
   const spy = sinon.spy(obj, 'save');
   const args = new Images();
   const repo = new ImageRepository(obj);
