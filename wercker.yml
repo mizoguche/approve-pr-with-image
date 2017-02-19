@@ -11,7 +11,7 @@ build:
       code: npm test
     - script:
       name: Build
-      code: npm run build
+      code: npm run webpack
   after-steps:
     - install-packages:
       packages: libssl-dev ruby
