@@ -3,6 +3,11 @@ box: node:4.2.6
 build:
   steps:
     - npm-install
+
+    # for flow-bin
+    - install-packages:
+      packages: libelf-dev
+
     - script:
       name: Flowtype
       code: npm run flow
