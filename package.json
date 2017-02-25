@@ -46,7 +46,7 @@
   "scripts": {
     "webpack": "webpack",
     "build": "rm -rf dist build && mkdir dist && webpack && mkdir -p build/approve-pr-with-image && cp -r dist icons manifest.json build/approve-pr-with-image/ && cd build && zip -r approve-pr-with-image.zip approve-pr-with-image",
-    "flow": "flow; test $? -eq 0 -o $? -eq 2",
+    "flow": "flow",
     "test": "ava",
     "lint": "eslint src test",
     "start": "webpack -d"
