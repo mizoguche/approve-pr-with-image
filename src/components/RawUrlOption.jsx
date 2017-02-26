@@ -8,7 +8,6 @@ import { requestUpdateRawUrls, requestEditRawUrls } from '../actions/option';
 class RawUrlOption extends Component {
   constructor(props, context, updater) {
     super(props, context, updater);
-    this.props = props;
     (this: any).handleSave = this.handleSave.bind(this);
     (this: any).handleEdit = this.handleEdit.bind(this);
   }

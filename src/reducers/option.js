@@ -3,6 +3,8 @@ import {
   ON_FETCH_IMAGES,
   ON_UPDATE_RAW_URLS,
   EDIT_RAW_URLS,
+  SHOW_PREVIEW,
+  HIDE_PREVIEW,
 } from '../actions/option';
 import Images from '../domain/image/Images';
 import type { OptionAction } from '../types/Option';
@@ -15,10 +17,14 @@ export class State {
 export class OptionState {
   images: Images;
   rawUrls: string;
+  previewingImageSrc: string;
+  isPreviewing: boolean;
 
-  constructor(rawUrls: string) {
+  constructor(rawUrls: string, previewingImageSrc: string = '', isPreviewing: boolean = false) {
     this.images = new Images(rawUrls);
     this.rawUrls = rawUrls;
+    this.previewingImageSrc = previewingImageSrc;
+    this.isPreviewing = isPreviewing;
   }
 }
 
@@ -34,6 +40,12 @@ export default (state: OptionState = new OptionState(''), action: OptionAction):
 
     case EDIT_RAW_URLS:
       return new OptionState(action.payload.rawUrls);
+
+    case SHOW_PREVIEW:
+      return new OptionState(state.rawUrls, action.payload.src, true);
+
+    case HIDE_PREVIEW:
+      return new OptionState(state.rawUrls, '', false);
 
     default:
       return state;
