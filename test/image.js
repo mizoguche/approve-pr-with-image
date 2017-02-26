@@ -61,7 +61,7 @@ test('get random image from images', (t) => {
 const mockStorage: Storage = {
   fetch: () => {
   },
-  save: () => {
+  store: () => {
   },
 };
 
@@ -75,7 +75,7 @@ test('fetch from image repository', (t) => {
 });
 
 test('store from image repository', (t) => {
-  const spy = sinon.spy(mockStorage, 'save');
+  const spy = sinon.spy(mockStorage, 'store');
   const args = new Images('');
   const repo = new ImageRepository(mockStorage);
   repo.store(args).subscribe();
