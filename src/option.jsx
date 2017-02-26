@@ -5,16 +5,16 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { createEpicMiddleware } from 'redux-observable';
 
-import optionReducer, { fetchImageEpic } from './reducers/option';
-import BulkUrlOption from './containers/BulkUrlOption';
+import optionReducer from './reducers/option';
+import optionEpic from './epics/option';
+import RawUrlOption from './components/RawUrlOption';
 
-const epickMiddleware = createEpicMiddleware(fetchImageEpic);
-
+const epickMiddleware = createEpicMiddleware(optionEpic);
 const store = createStore(optionReducer, applyMiddleware(epickMiddleware));
 
 render(
   <Provider store={store}>
-    <BulkUrlOption />
+    <RawUrlOption />
   </Provider>,
   document.getElementById('option'),
 );

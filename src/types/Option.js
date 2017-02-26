@@ -11,14 +11,9 @@ export interface PayloadAction<T> extends Action {
   payload: T;
 }
 
-export interface OptionState {
-  images: Images;
-  bulkUrls: string;
-}
-
 export interface OptionPayload {
   images: Images;
-  bulkUrls: string;
+  rawUrls: string;
 }
 
 export interface OptionImagesPayload {
@@ -26,13 +21,13 @@ export interface OptionImagesPayload {
 }
 
 export interface OptionUrlPayload {
-  bulkUrls: string;
+  rawUrls: string;
 }
 
 export interface SaveImagesAction extends PayloadAction<OptionImagesPayload> {
 }
 
-export interface UpdateBulkUrlsAction extends PayloadAction<OptionUrlPayload> {
+export interface UpdateRawUrlsAction extends PayloadAction<OptionUrlPayload> {
 }
 
 export interface OptionAction extends Action {
