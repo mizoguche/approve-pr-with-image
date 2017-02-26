@@ -19,12 +19,15 @@ export default class ImageView extends Component {
 
   render() {
     return (
-      <li style={{ listStyle: 'none', margin: '10px 0', height: '120px' }}>
+      <li
+        className="float-left"
+        style={{ listStyle: 'none', margin: '10px', height: '180px', width: '180px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+      >
         <a
           href="#/"
           onClick={this.handlePreview}
         >
-          <img alt={this.props.image.src} style={{ height: '100%' }} src={this.props.image.src} />
+          <img alt="image for approve" style={{ maxHeight: '180px', maxWidth: '180px' }} src={this.props.image.src} />
         </a>
       </li>
     );

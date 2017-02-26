@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import {
   Modal,
   ModalHeader,
-  ModalTitle,
-  ModalClose,
   ModalBody,
 } from 'react-modal-bootstrap';
 
@@ -32,7 +30,7 @@ class ImagesView extends Component {
 
     return (
       <div style={{ margin: '20px' }}>
-        <ul className="mdl-list">
+        <ul>
           {imgs}
         </ul>
         <Modal isOpen={this.props.isPreviewing} onRequestHide={this.props.hidePreview} size="modal-lg">
