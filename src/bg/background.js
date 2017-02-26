@@ -9,9 +9,9 @@ chrome.contextMenus.create({
   onclick: (info: any) => {
     if (info.menuItemId === 'ApproveLGTM') {
       const url: string = info.srcUrl;
-      imageRepository.fetch((images) => {
+      imageRepository.fetch().subscribe((images) => {
         images.add(new Image(url));
-        imageRepository.store(images);
+        imageRepository.store(images).subscribe();
       });
     }
   },
