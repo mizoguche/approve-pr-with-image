@@ -20,8 +20,7 @@ module.exports = {
   },
   plugins: [
     new CopyWebpackPlugin([{ from: 'chrome/static' }]),
-    new CopyWebpackPlugin([{ from: '../node_modules/material-design-lite/material.min.css' }]),
-    new CopyWebpackPlugin([{ from: '../node_modules/material-design-lite/material.min.js' }]),
+    new CopyWebpackPlugin([{ from: '../node_modules/bootstrap/dist/css/bootstrap.min.css' }]),
     new webpack.ProvidePlugin({
       jQuery: 'jquery',
       $: 'jquery',

@@ -15,7 +15,7 @@
     ],
     "persistent": true
   },
-  "options_page": "dist/index.html",
+  "options_page": "dist/option.html",
   "browser_action": {
     "default_icon": "icons/icon19.png",
     "default_title": "browser action demo",
