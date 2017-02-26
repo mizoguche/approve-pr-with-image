@@ -1,4 +1,5 @@
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var sourceMap = '';
 if (process.env.NODE_ENV !== 'production') {
@@ -21,6 +22,12 @@ module.exports = {
     new CopyWebpackPlugin([{ from: 'chrome/static' }]),
     new CopyWebpackPlugin([{ from: '../node_modules/material-design-lite/material.min.css' }]),
     new CopyWebpackPlugin([{ from: '../node_modules/material-design-lite/material.min.js' }]),
+    new webpack.ProvidePlugin({
+      jQuery: 'jquery',
+      $: 'jquery',
+      jquery: 'jquery',
+      Tether: 'tether',
+    }),
   ],
   module: {
     loaders: [
