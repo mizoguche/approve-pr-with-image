@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import type { State } from '../reducers/option';
-import { requestFetchImages, requestUpdateRawUrls, requestEditRawUrls } from '../actions/option';
+import { requestUpdateRawUrls, requestEditRawUrls } from '../actions/option';
 
 class RawUrlOption extends Component {
   constructor(props, context, updater) {
@@ -11,10 +11,6 @@ class RawUrlOption extends Component {
     this.props = props;
     (this: any).handleSave = this.handleSave.bind(this);
     (this: any).handleEdit = this.handleEdit.bind(this);
-  }
-
-  componentWillMount() {
-    this.props.fetchImages();
   }
 
   componentDidUpdate() {

@@ -1,10 +1,16 @@
 // @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { requestFetchImages } from '../actions/option';
 
 class App extends Component {
+  componentWillMount() {
+    this.props.fetchImages();
+  }
+
   props: {
     children: any,
+    fetchImages: Function,
   };
 
   render() {
@@ -16,10 +22,13 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = () => ({});
+const mapStateToProps = () => ({ });
 
-const mapDispatchToProps = () => ({});
-
+const mapDispatchToProps = dispatch => ({
+  fetchImages: () => {
+    dispatch(requestFetchImages());
+  },
+});
 
 export default connect(
   mapStateToProps,

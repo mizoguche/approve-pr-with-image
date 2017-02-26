@@ -11,6 +11,7 @@ import optionReducer from './reducers/option';
 import optionEpic from './epics/option';
 import App from './components/App';
 import RawUrlOption from './components/RawUrlOption';
+import ImagesView from './components/ImagesView';
 
 const reducer = combineReducers({
   option: optionReducer,
@@ -26,7 +27,8 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
-        <IndexRoute component={RawUrlOption} />
+        <IndexRoute component={ImagesView} />
+        <Route path="/raw" component={RawUrlOption} />
       </Route>
     </Router>
   </Provider>,
