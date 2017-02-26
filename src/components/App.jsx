@@ -24,7 +24,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container-fluid" style={{ margin: '20px auto', maxWidth: '800px' }}>
+      <div className="container-fluid" style={{ margin: '20px auto' }}>
         <ul className="nav nav-tabs">
           <li className="nav-item">
             <a className={this.buildNavItemClass('/')} href="#/">Images</a>
