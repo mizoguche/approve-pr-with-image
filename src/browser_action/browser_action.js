@@ -14,7 +14,7 @@ const copy = () => {
 // TODO: Use callback that MDL snackbar is ready
 jQuery(document).ready(() => {
   setTimeout(() => {
-    imageRepository.fetch((images) => {
+    imageRepository.fetch().subscribe((images) => {
       if (images.isEmpty()) {
         chrome.runtime.openOptionsPage();
         return;
