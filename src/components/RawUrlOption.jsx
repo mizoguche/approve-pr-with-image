@@ -17,6 +17,11 @@ class RawUrlOption extends Component {
     this.props.fetchImages();
   }
 
+  componentDidUpdate() {
+    const textarea = document.querySelector('.mdl-textfield');
+    textarea.MaterialTextfield.checkDirty();
+  }
+
   props: {
     rawUrls: string,
     fetchImages: Function,
