@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Image from '../domain/image/Image';
 
 export default class ImageView extends Component {
-  constructor(props, context, updater) {
+  constructor(props: any, context: any, updater: any) {
     super(props, context, updater);
     (this: any).handlePreview = this.handlePreview.bind(this);
   }

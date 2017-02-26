@@ -14,6 +14,7 @@ export interface PayloadAction<T> extends Action {
 export interface OptionPayload {
   images: Images;
   rawUrls: string;
+  src: string;
 }
 
 export interface OptionImagesPayload {
