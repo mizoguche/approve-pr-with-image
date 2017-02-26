@@ -38,7 +38,7 @@ class RawUrlOption extends Component {
   render() {
     return (
       <div className="mdl-layout__content mdl-grid" style={{ justifyContent: 'center' }}>
-        <div className="mdl-cell mdl-cell--9-col">
+        <div className="mdl-cell mdl-cell--6-col">
           <div className="mdl-textfield mdl-js-textfield" style={{ width: '100%' }}>
             <textarea className="mdl-textfield__input" rows="10" value={this.props.rawUrls} ref={(textarea) => { this.textarea = textarea; }} onChange={this.handleEdit} />
             <label className="mdl-textfield__label" htmlFor="urls">
