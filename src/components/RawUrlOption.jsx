@@ -13,14 +13,8 @@ class RawUrlOption extends Component {
     (this: any).handleEdit = this.handleEdit.bind(this);
   }
 
-  componentDidUpdate() {
-    const textarea = document.querySelector('.mdl-textfield');
-    (textarea: any).MaterialTextfield.checkDirty();
-  }
-
   props: {
     rawUrls: string,
-    fetchImages: Function,
     updateRawUrls: Function,
     editRawUrls: Function,
   };
@@ -37,21 +31,22 @@ class RawUrlOption extends Component {
 
   render() {
     return (
-      <div className="mdl-layout__content mdl-grid" style={{ justifyContent: 'center' }}>
-        <div className="mdl-cell mdl-cell--6-col">
-          <div className="mdl-textfield mdl-js-textfield" style={{ width: '100%' }}>
-            <textarea className="mdl-textfield__input" rows="10" value={this.props.rawUrls} ref={(textarea) => { this.textarea = textarea; }} onChange={this.handleEdit} />
-            <label className="mdl-textfield__label" htmlFor="urls">
-              Input image urls(separated with line break)...
-            </label>
-          </div>
-          <div>
-            <button id="save" className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onClick={this.handleSave}>
-              Save
-            </button>
-          </div>
+      <form>
+        <div className="form-group">
+          <label htmlFor="raw0url-textarea">Raw URL List(Separate with line break)</label>
+          <textarea
+            id="raw-url-textarea" className="form-control" rows="20" value={this.props.rawUrls}
+            ref={(textarea) => { this.textarea = textarea; }} onChange={this.handleEdit}
+          />
         </div>
-      </div>
+        <button
+          id="save"
+          className="btn btn-primary"
+          onClick={this.handleSave}
+        >
+          Save
+        </button>
+      </form>
     );
   }
 }
@@ -61,9 +56,6 @@ const mapStateToProps = (state: State) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchImages: () => {
-    dispatch(requestFetchImages());
-  },
   editRawUrls: (urls: string) => {
     dispatch(requestEditRawUrls(urls));
   },

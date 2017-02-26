@@ -13,28 +13,37 @@ class App extends Component {
   }
 
   props: {
+    path: string,
+    children: any,
     fetchImages: Function,
   };
 
+  buildNavItemClass(path: string) {
+    return `nav-link${this.props.path === path ? ' active' : ''}`;
+  }
+
   render() {
     return (
-      <div className="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-        <div className="mdl-tabs__tab-bar">
-          <a href="#images-view" className="mdl-tabs__tab is-active">Images</a>
-          <a href="#raw-url" className="mdl-tabs__tab">Bulk Edit</a>
-        </div>
-        <div className="mdl-tabs__panel is-active" id="images-view">
-          <ImagesView />
-        </div>
-        <div className="mdl-tabs__panel" id="raw-url">
-          <RawUrlOption />
+      <div className="container-fluid" style={{ margin: '20px auto', maxWidth: '800px' }}>
+        <ul className="nav nav-tabs">
+          <li className="nav-item">
+            <a className={this.buildNavItemClass('/')} href="#/">Images</a>
+          </li>
+          <li className="nav-item">
+            <a className={this.buildNavItemClass('/raw')} href="#/raw">Buld Edit</a>
+          </li>
+        </ul>
+        <div style={{ margin: '20px' }}>
+          {this.props.children}
         </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = () => ({ });
+const mapStateToProps = state => ({
+  path: state.routing.locationBeforeTransitions.pathname,
+});
 
 const mapDispatchToProps = dispatch => ({
   fetchImages: () => {
