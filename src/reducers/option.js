@@ -7,6 +7,11 @@ import {
 import Images from '../domain/image/Images';
 import type { OptionAction } from '../types/Option';
 
+export class State {
+  option: OptionState;
+  routing: any;
+}
+
 export class OptionState {
   images: Images;
   rawUrls: string;

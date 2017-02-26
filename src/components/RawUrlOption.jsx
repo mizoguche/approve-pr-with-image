@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import type { OptionState } from '../reducers/option';
+import type { State } from '../reducers/option';
 import { requestFetchImages, requestUpdateRawUrls, requestEditRawUrls } from '../actions/option';
 
 class RawUrlOption extends Component {
@@ -55,8 +55,8 @@ class RawUrlOption extends Component {
   }
 }
 
-const mapStateToProps = (state: OptionState) => ({
-  rawUrls: state.rawUrls,
+const mapStateToProps = (state: State) => ({
+  rawUrls: state.option.rawUrls,
 });
 
 const mapDispatchToProps = dispatch => ({

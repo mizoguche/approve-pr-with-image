@@ -1,5 +1,10 @@
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
+var sourceMap = '';
+if (process.env.NODE_ENV !== 'production') {
+  sourceMap = '#inline-source-map';
+}
+
 module.exports = {
   context: __dirname + '/src',
   entry: {
@@ -33,4 +38,5 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx'],
   },
+  devtool: sourceMap,
 };
