@@ -3,9 +3,9 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   context: __dirname + '/src',
   entry: {
-    background: './bg/background',
-    browser_action: './browser_action/browser_action',
-    inject: './inject/inject',
+    background: './chrome/background',
+    browser_action: './chrome/browser_action',
+    inject: './chrome/inject',
     options: './option',
   },
   output: {
@@ -13,7 +13,7 @@ module.exports = {
     filename: '[name].js',
   },
   plugins: [
-    new CopyWebpackPlugin([{ from: 'static' }]),
+    new CopyWebpackPlugin([{ from: 'chrome/static' }]),
     new CopyWebpackPlugin([{ from: '../node_modules/material-design-lite/material.min.css' }]),
     new CopyWebpackPlugin([{ from: '../node_modules/material-design-lite/material.min.js' }]),
   ],
