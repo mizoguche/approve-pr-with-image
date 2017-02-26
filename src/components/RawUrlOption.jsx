@@ -19,7 +19,7 @@ class RawUrlOption extends Component {
 
   componentDidUpdate() {
     const textarea = document.querySelector('.mdl-textfield');
-    textarea.MaterialTextfield.checkDirty();
+    (textarea: any).MaterialTextfield.checkDirty();
   }
 
   props: {
