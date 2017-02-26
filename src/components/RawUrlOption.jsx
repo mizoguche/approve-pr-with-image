@@ -9,8 +9,8 @@ class RawUrlOption extends Component {
   constructor(props, context, updater) {
     super(props, context, updater);
     this.props = props;
-    this.handleSave = this.handleSave.bind(this);
-    this.handleEdit = this.handleEdit.bind(this);
+    (this: any).handleSave = this.handleSave.bind(this);
+    (this: any).handleEdit = this.handleEdit.bind(this);
   }
 
   componentWillMount() {
@@ -20,8 +20,8 @@ class RawUrlOption extends Component {
   props: {
     rawUrls: string,
     fetchImages: Function,
-    updateRawUrls: Function<string>,
-    editRawUrls: Function<string>,
+    updateRawUrls: Function,
+    editRawUrls: Function,
   };
 
   textarea: HTMLTextAreaElement;

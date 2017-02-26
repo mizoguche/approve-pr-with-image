@@ -19,12 +19,13 @@ export class OptionState {
 
 const buildRawUrls = images => images.images.reduce((a, b) => `${a}${b.src}\n`, '');
 
-export default (state: OptionState = new OptionState(), action: OptionAction): OptionState => {
+export default (state: OptionState = new OptionState(''), action: OptionAction): OptionState => {
   switch (action.type) {
     case ON_FETCH_IMAGES:
-    case ON_UPDATE_RAW_URLS:
+    case ON_UPDATE_RAW_URLS: {
       const rawUrls = buildRawUrls(action.payload.images);
       return new OptionState(rawUrls);
+    }
 
     case EDIT_RAW_URLS:
       return new OptionState(action.payload.rawUrls);
