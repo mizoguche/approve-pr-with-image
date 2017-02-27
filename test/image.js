@@ -81,3 +81,16 @@ test('store from image repository', (t) => {
   repo.store(args).subscribe();
   t.true(spy.calledOnce);
 });
+
+test('remove image from images', (t) => {
+  const images = new Images('');
+  images.add(new Image('http://example.com/1.png'));
+  images.add(new Image('http://example.com/2.png'));
+  images.add(new Image('http://example.com/3.png'));
+
+  const img = new Image('http://example.com/2.png');
+  images.remove(img);
+  t.is(images.images.length, 2);
+  t.is(images.images[0].src, 'http://example.com/1.png');
+  t.is(images.images[1].src, 'http://example.com/3.png');
+});

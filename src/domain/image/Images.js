@@ -36,4 +36,18 @@ export default class Images {
   isEmpty() {
     return this.images.length === 0;
   }
+
+  remove(image: Image) {
+    let index = -1;
+    this.images.forEach((img, i) => {
+      if (img.src === image.src) {
+        index = i;
+        return;
+      }
+    });
+    if (index < 0) {
+      return;
+    }
+    this.images.splice(index, 1);
+  }
 }

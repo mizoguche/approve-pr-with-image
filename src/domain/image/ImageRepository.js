@@ -27,4 +27,8 @@ export default class ImageRepository {
       });
     });
   }
+
+  remove(image: Image): Observable<Images> {
+
+  };
 }
