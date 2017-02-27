@@ -27,5 +27,5 @@ export function requestHidePreview(): types.Action {
 
 export function requestRemoveImage(image: Image): types.RemoveImageAction {
   const payload: types.OptionImagePayload = { image };
-  return { type: types.SAVE_IMAGES, payload };
+  return { type: types.REMOVE_IMAGE, payload };
 }

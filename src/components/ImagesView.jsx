@@ -8,9 +8,10 @@ import {
 } from 'react-modal-bootstrap';
 
 import type { State } from '../reducers/option';
+import Image from '../domain/image/Image';
 import Images from '../domain/image/Images';
 import ImageView from './ImageView';
-import { requestShowPreview, requestHidePreview } from '../actions/option';
+import { requestShowPreview, requestHidePreview, requestRemoveImage } from '../actions/option';
 
 class ImagesView extends Component {
   props: {
@@ -19,6 +20,7 @@ class ImagesView extends Component {
     images: Images,
     showPreview: Function,
     hidePreview: Function,
+    removeImage: Function,
   };
 
   render() {
@@ -26,6 +28,7 @@ class ImagesView extends Component {
     this.props.images.images.forEach(img => imgs.push(<ImageView
       key={img.src} image={img}
       showPreview={this.props.showPreview}
+      remove={this.props.removeImage}
     />));
 
     return (
@@ -62,6 +65,10 @@ const mapDispatchToProps = dispatch => ({
   },
   hidePreview: () => {
     dispatch(requestHidePreview());
+  },
+  removeImage: (image: Image) => {
+    console.log(image)
+    dispatch(requestRemoveImage(image));
   },
 });
 
