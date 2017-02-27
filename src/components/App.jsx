@@ -30,7 +30,7 @@ class App extends Component {
             <a className={this.buildNavItemClass('/')} href="#/">Images</a>
           </li>
           <li className="nav-item">
-            <a className={this.buildNavItemClass('/raw')} href="#/raw">Buld Edit</a>
+            <a className={this.buildNavItemClass('/raw')} href="#/raw">Bulk Edit</a>
           </li>
         </ul>
         <div style={{ margin: '20px' }}>
