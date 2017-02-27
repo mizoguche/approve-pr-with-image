@@ -1,5 +1,6 @@
 // @flow
 import { Observable } from 'rxjs/Rx';
+import Image from './Image';
 import Images from './Images';
 import type Storage from '../storage/Storage';
 
@@ -29,6 +30,8 @@ export default class ImageRepository {
   }
 
   remove(image: Image): Observable<Images> {
-
+    return this.fetch()
+      .do(images => images.remove(image))
+      .mergeMap(images => this.store(images));
   };
 }

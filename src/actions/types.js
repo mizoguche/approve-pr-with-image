@@ -1,4 +1,5 @@
 // @flow
+import Image from '../domain/image/Image';
 import Images from '../domain/image/Images';
 
 export const FETCH_IMAGES = 'OPTION__FETCH_IMAGES';
@@ -52,6 +53,9 @@ export interface UpdateRawUrlsAction extends PayloadAction<OptionUrlPayload> {
 }
 
 export interface ShowPreviewAction extends PayloadAction<OptionPreviewPayload> {
+}
+
+export interface RemoveImageAction extends PayloadAction<OptionImagePayload> {
 }
 
 export interface OptionAction extends Action {

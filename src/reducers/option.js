@@ -1,6 +1,6 @@
 // @flow
 import Images from '../domain/image/Images';
-import type * as types from '../actions/types';
+import * as types from '../actions/types';
 
 export class State {
   option: OptionState;
