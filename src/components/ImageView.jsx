@@ -11,19 +11,15 @@ export default class ImageView extends Component {
 
   render() {
     return (
-      <li
-        className="float-left"
-        style={{ listStyle: 'none', margin: '10px', height: '180px', width: '180px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-      >
-        <button type="button" className="close float-right" aria-label="Close" onClick={() => this.props.remove(this.props.image)}>
-          <i className="fa fa-trash" aria-hidden="true" />
-        </button>
-        <a
-          href="#/"
-          onClick={() => this.props.showPreview(this.props.image.src)}
-        >
+      <li className="image-view">
+        <div className="image-container">
           <img alt="approve" style={{ maxHeight: '180px', maxWidth: '180px' }} src={this.props.image.src} />
-        </a>
+        </div>
+        <div className="remove-button-container" onClick={() => this.props.showPreview(this.props.image.src)}>
+          <button type="button" className="remove-button" aria-label="Close" onClick={() => this.props.remove(this.props.image)}>
+            <i className="fa fa-trash" aria-hidden="true" />
+          </button>
+        </div>
       </li>
     );
   }
