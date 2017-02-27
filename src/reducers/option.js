@@ -1,13 +1,6 @@
 // @flow
-import {
-  ON_FETCH_IMAGES,
-  ON_UPDATE_RAW_URLS,
-  EDIT_RAW_URLS,
-  SHOW_PREVIEW,
-  HIDE_PREVIEW,
-} from '../actions/option';
 import Images from '../domain/image/Images';
-import type { OptionAction } from '../types/Option';
+import type * as types from '../actions/types';
 
 export class State {
   option: OptionState;
@@ -30,21 +23,22 @@ export class OptionState {
 
 const buildRawUrls = images => images.images.reduce((a, b) => `${a}${b.src}\n`, '');
 
-export default (state: OptionState = new OptionState(''), action: OptionAction): OptionState => {
+export default (state: OptionState = new OptionState(''), action: types.OptionAction): OptionState => {
   switch (action.type) {
-    case ON_FETCH_IMAGES:
-    case ON_UPDATE_RAW_URLS: {
+    case types.ON_FETCH_IMAGES:
+    case types.ON_UPDATE_RAW_URLS:
+    case types.ON_REMOVE_IMAGE: {
       const rawUrls = buildRawUrls(action.payload.images);
       return new OptionState(rawUrls);
     }
 
-    case EDIT_RAW_URLS:
+    case types.EDIT_RAW_URLS:
       return new OptionState(action.payload.rawUrls);
 
-    case SHOW_PREVIEW:
+    case types.SHOW_PREVIEW:
       return new OptionState(state.rawUrls, action.payload.src, true);
 
-    case HIDE_PREVIEW:
+    case types.HIDE_PREVIEW:
       return new OptionState(state.rawUrls, '', false);
 
     default:
