@@ -1,0 +1,7 @@
+//@import "~font-awesome";
+.a {
+  color: red;
+  &:hover {
+    color: yellow;
+  }
+}

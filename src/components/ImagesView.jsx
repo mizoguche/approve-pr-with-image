@@ -67,7 +67,6 @@ const mapDispatchToProps = dispatch => ({
     dispatch(requestHidePreview());
   },
   removeImage: (image: Image) => {
-    console.log(image)
     dispatch(requestRemoveImage(image));
   },
 });

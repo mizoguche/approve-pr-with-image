@@ -16,7 +16,7 @@ export default class ImageView extends Component {
         style={{ listStyle: 'none', margin: '10px', height: '180px', width: '180px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
       >
         <button type="button" className="close float-right" aria-label="Close" onClick={() => this.props.remove(this.props.image)}>
-          <span aria-hidden="true">&times;</span>
+          <i className="fa fa-trash" aria-hidden="true" />
         </button>
         <a
           href="#/"
