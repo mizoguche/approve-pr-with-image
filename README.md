@@ -1,6 +1,8 @@
 # Approve Pull Request with image
 Chrome Extension to approve pull request with LGTM image.
 
+[![wercker status](https://app.wercker.com/status/a40b302b4606557e076d49d17d00be47/s/master "wercker status")](https://app.wercker.com/project/byKey/a40b302b4606557e076d49d17d00be47)
+
 ## Installation
 [Download from Chrome Web Store](https://chrome.google.com/webstore/detail/bmkigbjalmniajmclpbniddicijnapgh)
 

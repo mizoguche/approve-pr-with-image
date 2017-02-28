@@ -1,9 +1,4 @@
-import { Images } from './image';
-
-interface Storage {
-  fetch(callback: Function): void;
-  store(images: Images, callback: Function): void;
-}
+import Images from '../domain/image/Images';
 
 export default class ChromeStorage {
   constructor() {

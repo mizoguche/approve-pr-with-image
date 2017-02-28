@@ -1,0 +1,28 @@
+box: node:4.2.6
+
+build:
+  steps:
+    - npm-install
+
+    # for flow-bin
+    - install-packages:
+      packages: libelf-dev
+
+    - script:
+      name: Flowtype
+      code: npm run flow
+    - script:
+      name: Lint
+      code: npm run lint
+    - script:
+      name: Test
+      code: npm test
+    - script:
+      name: Build
+      code: npm run webpack
+  after-steps:
+    - install-packages:
+      packages: libssl-dev ruby
+    - wantedly/pretty-slack-notify:
+      webhook_url: $SLACK_WEBHOOK_URL
+      notify_on: "failed"

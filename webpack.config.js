@@ -1,33 +1,95 @@
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-module.exports = {
-  context: __dirname + '/src',
-  entry: {
-    'background': './bg/background.js',
-    'browser_action': './browser_action/browser_action.js',
-    'inject': './inject/inject.js',
-    'options': './options/index.js'
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const extractSass = new ExtractTextPlugin({ filename: 'style.css', allChunks: true });
+
+var sourceMap = '';
+if (process.env.NODE_ENV !== 'production') {
+  sourceMap = '#inline-source-map';
+}
+
+module.exports = [
+  // JS
+  {
+    context: `${__dirname}/src`,
+    entry: {
+      background: './chrome/background',
+      browser_action: './chrome/browser_action',
+      inject: './chrome/inject',
+      options: './option',
+    },
+    output: {
+      path: `${__dirname}/dist`,
+      filename: '[name].js',
+    },
+    plugins: [
+      new webpack.ProvidePlugin({
+        jQuery: 'jquery',
+        $: 'jquery',
+        jquery: 'jquery',
+        Tether: 'tether',
+      }),
+    ],
+    module: {
+      loaders: [
+        {
+          test: /\.jsx?$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader',
+          query: {
+            presets: ['es2015', 'react'],
+            plugins: ['transform-flow-strip-types'],
+          },
+        },
+      ],
+    },
+    resolve: {
+      extensions: ['.js', '.jsx'],
+    },
+    devtool: sourceMap,
   },
-  output: {
-    path: __dirname + '/dist',
-    filename: '[name].js'
-  },
-  plugins: [
-    new CopyWebpackPlugin([{ from: 'static' }]),
-    new CopyWebpackPlugin([{ from: '../node_modules/material-design-lite/material.min.css' }]),
-    new CopyWebpackPlugin([{ from: '../node_modules/material-design-lite/material.min.js' }]),
-  ],
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: "babel",
-        query: {
-          presets: ['es2015'],
-          "plugins": ["transform-flow-strip-types"]
+
+
+  // SCSS
+  {
+    context: `${__dirname}/src`,
+    entry: {
+      style: './chrome/static/style/index.js',
+    },
+    output: {
+      path: `${__dirname}/dist`,
+      filename: '[name].js',
+    },
+    module: {
+      loaders: [
+        {
+          test: /\.scss$/,
+          loader: ExtractTextPlugin.extract('css-loader!sass-loader'),
+        },
+        {
+          test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+          loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+        }, {
+          test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+          loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+        }, {
+          test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+          loader: 'url-loader?limit=10000&mimetype=application/octet-stream',
+        }, {
+          test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+          loader: 'file-loader',
+        }, {
+          test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+          loader: 'url-loader?limit=10000&mimetype=image/svg+xml',
         }
-      }
-    ]
-  }
-};
+      ],
+    },
+    plugins: [
+      extractSass,
+      new CopyWebpackPlugin([
+        { from: 'chrome/static/html' },
+      ]),
+    ],
+  },
+];
