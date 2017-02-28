@@ -42,7 +42,6 @@ export default class Images {
     this.images.forEach((img, i) => {
       if (img.src === image.src) {
         index = i;
-        return;
       }
     });
     if (index < 0) {

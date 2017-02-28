@@ -33,5 +33,5 @@ export default class ImageRepository {
     return this.fetch()
       .do(images => images.remove(image))
       .mergeMap(images => this.store(images));
-  };
+  }
 }
