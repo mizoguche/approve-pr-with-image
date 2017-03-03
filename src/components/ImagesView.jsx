@@ -11,7 +11,7 @@ import type { State } from '../reducers/option';
 import Image from '../domain/image/Image';
 import Images from '../domain/image/Images';
 import ImageView from './ImageView';
-import { requestShowPreview, requestHidePreview, requestRemoveImage } from '../actions/option';
+import { showPreview, hidePreview, removeImage } from '../actions/option';
 
 class ImagesView extends Component {
   props: {
@@ -61,13 +61,13 @@ const mapStateToProps = (state: State) => ({
 
 const mapDispatchToProps = dispatch => ({
   showPreview: (src) => {
-    dispatch(requestShowPreview(src));
+    dispatch(showPreview(src));
   },
   hidePreview: () => {
-    dispatch(requestHidePreview());
+    dispatch(hidePreview());
   },
   removeImage: (image: Image) => {
-    dispatch(requestRemoveImage(image));
+    dispatch(removeImage(image));
   },
 });
 

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import type { State } from '../reducers/option';
-import { requestUpdateRawUrls, requestEditRawUrls } from '../actions/option';
+import { updateRawUrls, editRawUrls } from '../actions/option';
 
 class RawUrlOption extends Component {
   constructor(props, context, updater) {
@@ -56,10 +56,10 @@ const mapStateToProps = (state: State) => ({
 
 const mapDispatchToProps = dispatch => ({
   editRawUrls: (urls: string) => {
-    dispatch(requestEditRawUrls(urls));
+    dispatch(editRawUrls(urls));
   },
   updateRawUrls: (urls: string) => {
-    dispatch(requestUpdateRawUrls(urls));
+    dispatch(updateRawUrls(urls));
   },
 });
 
