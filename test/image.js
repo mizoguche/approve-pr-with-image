@@ -4,7 +4,7 @@ import sinon from 'sinon';
 import Image from '../src/domain/image/Image';
 import Images from '../src/domain/image/Images';
 import ImageRepository from '../src/domain/image/ImageRepository';
-import Storage from '../src/domain/storage/Storage';
+import type { Storage } from '../src/domain/storage/Storage';
 
 
 test('create image instance', (t) => {
