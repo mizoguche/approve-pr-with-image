@@ -1,6 +1,6 @@
 {
   "name": "approve-pr-with-image",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Chrome extension to approve pull request with LGTM image",
   "main": "index.js",
   "dependencies": {
