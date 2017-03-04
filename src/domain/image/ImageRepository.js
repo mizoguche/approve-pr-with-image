@@ -2,7 +2,7 @@
 import { Observable } from 'rxjs/Rx';
 import Image from './Image';
 import Images from './Images';
-import type Storage from '../storage/Storage';
+import type { Storage } from '../storage/Storage';
 
 export default class ImageRepository {
   storage: Storage;

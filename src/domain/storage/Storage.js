@@ -1,7 +1,7 @@
-import { Images } from '../image/Image';
+// @flow
+import Images from '../image/Images';
 
-declare interface Storage {
+export type Storage = {
   fetch(callback: Function): void;
   store(images: Images, callback: Function): void;
-}
-
+};

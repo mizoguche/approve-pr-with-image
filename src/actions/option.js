@@ -1,31 +1,40 @@
 // @flow
 import * as types from './types';
-import Image from '../domain/image/Image';
+import type Image from '../domain/image/Image';
+import type Images from '../domain/image/Images';
 
-export function requestFetchImages(): types.Action {
-  return { type: types.FETCH_IMAGES };
+export function fetchImages(): types.Action<void> {
+  return { type: types.FETCH_IMAGES, payload: undefined };
 }
 
-export function requestUpdateRawUrls(rawUrls: string): types.UpdateRawUrlsAction {
-  const payload: types.OptionUrlPayload = { rawUrls };
-  return { type: types.UPDATE_RAW_URLS, payload };
+export function completeFetchImages(images: Images): types.Action<types.ImagesPayload> {
+  return { type: types.COMPLETE_FETCH_IMAGES, payload: { images } };
 }
 
-export function requestEditRawUrls(rawUrls: string): types.UpdateRawUrlsAction {
-  const payload: types.OptionUrlPayload = { rawUrls };
-  return { type: types.EDIT_RAW_URLS, payload };
+export function updateRawUrls(rawUrls: string): types.Action<types.RawUrlsPayload> {
+  return { type: types.UPDATE_RAW_URLS, payload: { rawUrls } };
 }
 
-export function requestShowPreview(src: string): types.ShowPreviewAction {
-  const payload: types.OptionPreviewPayload = { src };
-  return { type: types.SHOW_PREVIEW, payload };
+export function completeUpdateRawUrls(images: Images): types.Action<types.ImagesPayload> {
+  return { type: types.COMPLETE_UPDATE_RAW_URLS, payload: { images } };
 }
 
-export function requestHidePreview(): types.Action {
-  return { type: types.HIDE_PREVIEW };
+export function editRawUrls(rawUrls: string): types.Action<types.RawUrlsPayload> {
+  return { type: types.EDIT_RAW_URLS, payload: { rawUrls } };
 }
 
-export function requestRemoveImage(image: Image): types.RemoveImageAction {
-  const payload: types.OptionImagePayload = { image };
-  return { type: types.REMOVE_IMAGE, payload };
+export function showPreview(src: string): types.Action<types.SrcPayload> {
+  return { type: types.SHOW_PREVIEW, payload: { src } };
+}
+
+export function hidePreview(): types.Action<void> {
+  return { type: types.HIDE_PREVIEW, payload: undefined };
+}
+
+export function removeImage(image: Image): types.Action<types.ImagePayload> {
+  return { type: types.REMOVE_IMAGE, payload: { image } };
+}
+
+export function completeRemoveImage(images: Images): types.Action<types.ImagesPayload> {
+  return { type: types.COMPLETE_REMOVE_IMAGE, payload: { images } };
 }

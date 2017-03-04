@@ -1,17 +1,21 @@
+// @flow
 import Images from '../domain/image/Images';
+import type { Storage } from '../domain/storage/Storage';
 
 export default class ChromeStorage {
+  storage: typeof chrome.storage.sync;
+
   constructor() {
     this.storage = chrome.storage.sync;
   }
 
-  fetch(callback) {
+  fetch(callback: (Images) => void) {
     this.storage.get('images', (obj) => {
       if (!obj.images) {
-        callback(new Images());
+        callback(new Images(''));
         return;
       }
-      const images = new Images();
+      const images = new Images('');
       images.images = obj.images;
       callback(images);
     });
@@ -25,3 +29,5 @@ export default class ChromeStorage {
     });
   }
 }
+
+(new ChromeStorage(): Storage); // eslint-disable-line

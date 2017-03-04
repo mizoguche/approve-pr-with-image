@@ -2,31 +2,32 @@
 import { combineEpics } from 'redux-observable';
 import type { Observable } from 'rxjs';
 import * as types from '../actions/types';
+import * as actionCreators from '../actions/option';
 import Image from '../domain/image/Image';
 import Images from '../domain/image/Images';
 import { imageRepository } from '../application/repositories';
 
 const fetchImageMap = () => imageRepository
   .fetch()
-  .map(images => ({ type: types.ON_FETCH_IMAGES, payload: { images } }));
+  .map(actionCreators.completeFetchImages);
 
-export const fetchImageEpic: Function = action$ => action$
+const fetchImageEpic = action$ => action$
   .ofType(types.FETCH_IMAGES)
   .mergeMap(() => fetchImageMap());
 
 const updateRawUrls = (rawUrls: string) => imageRepository
   .store(new Images(rawUrls))
-  .map(images => ({ type: types.ON_UPDATE_RAW_URLS, payload: { images } }));
+  .map(actionCreators.completeUpdateRawUrls);
 
-export const updateRawUrlsEpic: Function = action$ => action$
+const updateRawUrlsEpic = action$ => action$
   .ofType(types.UPDATE_RAW_URLS)
   .mergeMap(action => updateRawUrls(action.payload.rawUrls));
 
-const removeImage = (image: Image): Observable<types.Action> => imageRepository
+const removeImage = (image: Image): Observable<types.Action<types.ImagePayload>> => imageRepository
   .remove(image)
-  .map(images => ({ type: types.ON_REMOVE_IMAGE, payload: { images } }));
+  .map(actionCreators.completeRemoveImage);
 
-export const removeImageEpic: Observable<Observable<types.Action>> = action$ => action$
+const removeImageEpic = action$ => action$
   .ofType(types.REMOVE_IMAGE)
   .mergeMap(action => removeImage(action.payload.image));
 

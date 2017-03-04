@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { hashHistory } from 'react-router';
 
-import { requestFetchImages } from '../actions/option';
+import { fetchImages } from '../actions/option';
 import ImagesView from './ImagesView';
 import RawUrlOption from './RawUrlOption';
 
@@ -47,7 +47,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchImages: () => {
-    dispatch(requestFetchImages());
+    dispatch(fetchImages());
   },
 });
 
