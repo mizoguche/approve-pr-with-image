@@ -16,3 +16,33 @@ Chrome Extension to approve pull request with LGTM image.
 
 ## License
 MIT
+
+## Add Great Image
+- You can add great image to Pull Request approve comment
+- You can store favorite image when you find it
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
