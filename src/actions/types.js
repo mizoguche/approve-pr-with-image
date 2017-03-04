@@ -2,33 +2,35 @@
 import Image from '../domain/image/Image';
 import Images from '../domain/image/Images';
 
-export const FETCH_IMAGES = 'OPTION/FETCH_IMAGES';
-export const COMPLETE_FETCH_IMAGES = 'OPTION/COMPLETE_FETCH_IMAGES';
-export const EDIT_RAW_URLS = 'OPTION/EDIT_RAW_URLS';
-export const UPDATE_RAW_URLS = 'OPTION/UPDATE_RAW_URLS';
-export const COMPLETE_UPDATE_RAW_URLS = 'OPTION/COMPLETE_UPDATE_RAW_URLS';
-export const SHOW_PREVIEW = 'OPTION/SHOW_PREVIEW';
-export const HIDE_PREVIEW = 'OPTION/HIDE_PREVIEW';
-export const REMOVE_IMAGE = 'OPTION/REMOVE_IMAGE';
-export const COMPLETE_REMOVE_IMAGE = 'OPTION/COMPLETE_REMOVE_IMAGE';
+export type ActionType = string;
 
-export type Action = {
-  type: string;
+export const FETCH_IMAGES: ActionType = 'OPTION/FETCH_IMAGES';
+export const COMPLETE_FETCH_IMAGES: ActionType = 'OPTION/COMPLETE_FETCH_IMAGES';
+export const EDIT_RAW_URLS: ActionType = 'OPTION/EDIT_RAW_URLS';
+export const UPDATE_RAW_URLS: ActionType = 'OPTION/UPDATE_RAW_URLS';
+export const COMPLETE_UPDATE_RAW_URLS: ActionType = 'OPTION/COMPLETE_UPDATE_RAW_URLS';
+export const SHOW_PREVIEW: ActionType = 'OPTION/SHOW_PREVIEW';
+export const HIDE_PREVIEW: ActionType = 'OPTION/HIDE_PREVIEW';
+export const REMOVE_IMAGE: ActionType = 'OPTION/REMOVE_IMAGE';
+export const COMPLETE_REMOVE_IMAGE: ActionType = 'OPTION/COMPLETE_REMOVE_IMAGE';
+
+export type Action<T> = {
+  type: ActionType;
+  payload: T
 };
 
-export type OptionImagePayloadAction = Action & {
+export type ImagePayload = {
   image: Image;
 }
 
-export type OptionImagesPayloadAction = Action & {
+export type ImagesPayload = {
   images: Images;
 }
 
-export type OptionRawUrlsPayloadAction = Action & {
+export type RawUrlsPayload = {
   rawUrls: string;
 }
 
-export type OptionSrcPayloadAction = Action & {
+export type SrcPayload = {
   src: string;
 }
-

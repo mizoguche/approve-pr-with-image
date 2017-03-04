@@ -26,7 +26,8 @@ class ImagesView extends Component {
   render() {
     const imgs = [];
     this.props.images.images.forEach(img => imgs.push(<ImageView
-      key={img.src} image={img}
+      key={img.src}
+      image={img}
       showPreview={this.props.showPreview}
       remove={this.props.removeImage}
     />));

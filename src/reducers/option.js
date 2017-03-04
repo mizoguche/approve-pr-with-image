@@ -23,22 +23,27 @@ export class OptionState {
 
 const buildRawUrls = images => images.images.reduce((a, b) => `${a}${b.src}\n`, '');
 
-export default (state: OptionState = new OptionState(''), action: types.Action): OptionState => {
+export default (state: OptionState = new OptionState(''), action: any): OptionState => {
   switch (action.type) {
     case types.COMPLETE_FETCH_IMAGES:
     case types.COMPLETE_UPDATE_RAW_URLS:
-    case types.COMPLETE_REMOVE_IMAGE: {
-      const rawUrls = buildRawUrls(((action: any): types.OptionImagesPayloadAction).images);
-      return new OptionState(rawUrls);
-    }
+    case types.COMPLETE_REMOVE_IMAGE:
+      {
+        const images = (action: types.Action<types.ImagesPayload>).payload.images;
+        const rawUrls = buildRawUrls(images);
+        return new OptionState(rawUrls);
+      }
 
     case types.EDIT_RAW_URLS:
-      return new OptionState(((action: any): types.OptionRawUrlsPayloadAction).rawUrls);
+      {
+        const rawUrls = (action: types.Action<types.RawUrlsPayload>).payload.rawUrls;
+        return new OptionState(rawUrls);
+      }
 
     case types.SHOW_PREVIEW:
       return new OptionState(
         state.rawUrls,
-        ((action: any): types.OptionSrcPayloadAction).src,
+        (action: types.Action<types.SrcPayload>).payload.src,
         true,
       );
 
