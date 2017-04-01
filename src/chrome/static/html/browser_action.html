@@ -1,22 +1,19 @@
 <!doctype html>
 <html>
 <head>
-    <link rel="stylesheet" href="/dist/material.min.css">
-    <script src="/dist/material.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="/dist/browser_action.js"></script>
+    <link rel="stylesheet" href="/dist/style.css">
 </head>
-<body>
+<body style="padding: 8px;">
 
 <main>
 </main>
 
-<textarea id="clipboard" style="display: none;"></textarea>
-
-<div id="copy-message" class="mdl-js-snackbar mdl-snackbar">
-    <div class="mdl-snackbar__text"></div>
-    <button class="mdl-snackbar__action" type="button"></button>
+<div id="alert" style="display: none; margin: 8px 0 0;" class="alert alert-success" role="alert">
+    Copied to clipboard.
 </div>
+
+<button id="clipboard" class="btn btn-primary" style="display: none;">copy</button>
 
 </body>
 </html>
