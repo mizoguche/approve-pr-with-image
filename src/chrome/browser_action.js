@@ -27,7 +27,7 @@ const notifyTextToTab = (text: string) => {
 jQuery(document).ready(() => {
   const clipboard = new Clipboad('.btn');
   clipboard.on('success', (e) => {
-    console.info(`Copied to clipboard: ${e.text}`)
+    console.info(`Copied to clipboard: ${e.text}`);
   });
 
   imageRepository
@@ -45,5 +45,5 @@ jQuery(document).ready(() => {
       const imageText = `[![LGTM](${imageUrl})](${imageUrl})`;
       copyToClipboard(imageText);
       notifyTextToTab(imageText);
-  });
+    });
 });
