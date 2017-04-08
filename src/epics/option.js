@@ -3,8 +3,8 @@ import { combineEpics } from 'redux-observable';
 import type { Observable } from 'rxjs';
 import * as types from '../actions/types';
 import * as actionCreators from '../actions/option';
-import Image from '../domain/image/Image';
-import Images from '../domain/image/Images';
+import Image from '../domain/Image';
+import Images from '../domain/Images';
 import { imageRepository } from '../application/repositories';
 
 const fetchImageMap = () => imageRepository

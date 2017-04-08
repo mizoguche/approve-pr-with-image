@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import Image from '../domain/image/Image';
+import Image from '../domain/Image';
 
 export default class ImageView extends Component {
   props: {

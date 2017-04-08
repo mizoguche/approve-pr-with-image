@@ -1,10 +1,7 @@
 // @flow
 import test from 'ava';
-import sinon from 'sinon';
-import Image from '../src/domain/image/Image';
-import Images from '../src/domain/image/Images';
-import ImageRepository from '../src/domain/image/ImageRepository';
-import type { Storage } from '../src/domain/storage/Storage';
+import Image from '../src/domain/Image';
+import Images from '../src/domain/Images';
 
 
 test('create image instance', (t) => {
@@ -56,41 +53,4 @@ test('get random image from images', (t) => {
   t.not(result, null);
   const resultFileNumber = parseInt(result[1], 10);
   t.true(resultFileNumber > 0 && resultFileNumber <= 5);
-});
-
-const mockStorage: Storage = {
-  fetch: () => {
-  },
-  store: () => {
-  },
-};
-
-test('fetch from image repository', (t) => {
-  const spy = sinon.spy(mockStorage, 'fetch');
-  const args = () => {
-  };
-  const repo = new ImageRepository(mockStorage);
-  repo.fetch(args).subscribe();
-  t.true(spy.calledOnce);
-});
-
-test('store from image repository', (t) => {
-  const spy = sinon.spy(mockStorage, 'store');
-  const args = new Images('');
-  const repo = new ImageRepository(mockStorage);
-  repo.store(args).subscribe();
-  t.true(spy.calledOnce);
-});
-
-test('remove image from images', (t) => {
-  const images = new Images('');
-  images.add(new Image('http://example.com/1.png'));
-  images.add(new Image('http://example.com/2.png'));
-  images.add(new Image('http://example.com/3.png'));
-
-  const img = new Image('http://example.com/2.png');
-  images.remove(img);
-  t.is(images.images.length, 2);
-  t.is(images.images[0].src, 'http://example.com/1.png');
-  t.is(images.images[1].src, 'http://example.com/3.png');
 });

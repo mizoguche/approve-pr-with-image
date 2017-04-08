@@ -8,8 +8,8 @@ import {
 } from 'react-modal-bootstrap';
 
 import type { State } from '../reducers/option';
-import Image from '../domain/image/Image';
-import Images from '../domain/image/Images';
+import Image from '../domain/Image';
+import Images from '../domain/Images';
 import ImageView from './ImageView';
 import { showPreview, hidePreview, removeImage } from '../actions/option';
 

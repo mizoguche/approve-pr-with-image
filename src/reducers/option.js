@@ -1,5 +1,5 @@
 // @flow
-import Images from '../domain/image/Images';
+import Images from '../domain/Images';
 import * as types from '../actions/types';
 
 export class State {

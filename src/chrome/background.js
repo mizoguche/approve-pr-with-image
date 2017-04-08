@@ -1,6 +1,6 @@
 // @flow
 import { imageRepository } from '../application/repositories';
-import Image from '../domain/image/Image';
+import Image from '../domain/Image';
 
 chrome.contextMenus.create({
   id: 'ApproveLGTM',

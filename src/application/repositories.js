@@ -1,6 +1,5 @@
 /* eslint import/prefer-default-export: 0 */
 // @flow
-import ChromeStorage from '../infrastructure/ChromeStorage';
-import ImageRepository from '../domain/image/ImageRepository';
+import ChromeStorageRepository from '../infrastructure/ChromeStorageRepository';
 
-export const imageRepository = new ImageRepository(new ChromeStorage());
+export const imageRepository = new ChromeStorageRepository();

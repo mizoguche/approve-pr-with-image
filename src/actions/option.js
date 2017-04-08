@@ -1,7 +1,7 @@
 // @flow
 import * as types from './types';
-import type Image from '../domain/image/Image';
-import type Images from '../domain/image/Images';
+import type Image from '../domain/Image';
+import type Images from '../domain/Images';
 
 export function fetchImages(): types.Action<void> {
   return { type: types.FETCH_IMAGES, payload: undefined };

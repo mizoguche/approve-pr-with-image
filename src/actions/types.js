@@ -1,6 +1,6 @@
 // @flow
-import Image from '../domain/image/Image';
-import Images from '../domain/image/Images';
+import Image from '../domain/Image';
+import Images from '../domain/Images';
 
 export type ActionType = string;
 
