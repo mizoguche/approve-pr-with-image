@@ -15,18 +15,23 @@ export default class ImageView extends Component {
         <div className="image-container">
           <img alt="approve" style={{ maxHeight: '180px', maxWidth: '180px' }} src={this.props.image.src} />
         </div>
-        <div
+        <a
+          tabIndex="-1"
           className="remove-button-container"
-          onClick={() => this.props.showPreview(this.props.image.src)}
+          onClick={() => { this.props.showPreview(this.props.image.src); }}
         >
           <button
             type="button"
-            className="remove-button" aria-label="Close"
-            onClick={() => this.props.remove(this.props.image)}
+            className="remove-button"
+            aria-label="Close"
+            onClick={(ev) => {
+              ev.stopPropagation();
+              this.props.remove(this.props.image);
+            }}
           >
             <i className="fa fa-trash" aria-hidden="true" />
           </button>
-        </div>
+        </a>
       </li>
     );
   }
