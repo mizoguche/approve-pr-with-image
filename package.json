@@ -65,11 +65,8 @@
     "lint": "eslint src test",
     "start": "webpack -d"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mizoguche/approve-pr-with-image.git"
-  },
-  "author": "",
+  "repository": "git+https://github.com/mizoguche/approve-pr-with-image.git",
+  "author": "Michiaki Mizoguchi <michiaki.mizoguchi@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mizoguche/approve-pr-with-image/issues"
