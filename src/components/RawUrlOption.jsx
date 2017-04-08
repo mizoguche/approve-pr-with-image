@@ -18,7 +18,7 @@ class RawUrlOption extends Component {
     return (
       <form>
         <div className="form-group">
-          <label htmlFor="raw0url-textarea">Raw URL List(Separate with line break)</label>
+          <label htmlFor="raw0url-textarea">Raw URL List(Newline delimited)</label>
           <textarea
             id="raw-url-textarea"
             className="form-control"
