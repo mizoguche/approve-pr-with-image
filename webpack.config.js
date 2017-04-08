@@ -9,6 +9,21 @@ if (process.env.NODE_ENV !== 'production') {
   sourceMap = '#inline-source-map';
 }
 
+const plugins = [
+  new webpack.ProvidePlugin({
+    jQuery: 'jquery',
+    $: 'jquery',
+    jquery: 'jquery',
+    Tether: 'tether',
+  }),
+  new webpack.DefinePlugin({ ENV: JSON.stringify(process.env.NODE_ENV) }),
+];
+
+if (process.env.NODE_ENV === 'production') {
+  plugins.push(new webpack.optimize.UglifyJsPlugin());
+}
+
+
 module.exports = [
   // JS
   {
@@ -23,15 +38,7 @@ module.exports = [
       path: `${__dirname}/dist`,
       filename: '[name].js',
     },
-    plugins: [
-      new webpack.ProvidePlugin({
-        jQuery: 'jquery',
-        $: 'jquery',
-        jquery: 'jquery',
-        Tether: 'tether',
-      }),
-      new webpack.DefinePlugin({ ENV: JSON.stringify(process.env.NODE_ENV) })
-    ],
+    plugins,
     module: {
       loaders: [
         {
