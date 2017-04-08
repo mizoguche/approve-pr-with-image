@@ -30,6 +30,7 @@ module.exports = [
         jquery: 'jquery',
         Tether: 'tether',
       }),
+      new webpack.DefinePlugin({ ENV: JSON.stringify(process.env.NODE_ENV) })
     ],
     module: {
       loaders: [
