@@ -61,7 +61,8 @@
   },
   "scripts": {
     "webpack": "webpack --display-error-details",
-    "build": "rm -rf dist build && mkdir dist && webpack --display-error-details && mkdir -p build/approve-pr-with-image && cp -r dist icons manifest.json build/approve-pr-with-image/ && cd build && zip -r approve-pr-with-image.zip approve-pr-with-image",
+    "build": "rm -rf dist build && mkdir dist && webpack --display-error-details && mkdir -p build/approve-pr-with-image && cp -r dist icons manifest.json build/approve-pr-with-image/",
+    "build:production": "rm -rf dist build && mkdir dist && webpack --display-error-details && mkdir -p build/approve-pr-with-image && cp -r dist icons manifest.json build/approve-pr-with-image/ && cd build && zip -r approve-pr-with-image.zip approve-pr-with-image",
     "flow": "flow",
     "test": "ava",
     "lint": "eslint src test",
