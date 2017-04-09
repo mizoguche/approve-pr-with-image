@@ -10,12 +10,6 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const plugins = [
-  new webpack.ProvidePlugin({
-    jQuery: 'jquery',
-    $: 'jquery',
-    jquery: 'jquery',
-    Tether: 'tether',
-  }),
   new webpack.DefinePlugin({ ENV: JSON.stringify(process.env.NODE_ENV) }),
   extractSass,
   new CopyWebpackPlugin([

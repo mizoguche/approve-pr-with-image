@@ -17,10 +17,9 @@ const copyToClipboard = (text: string) => {
 };
 
 const notifyTextToTab = (text: string) => {
-  chrome.tabs.query({ active: true }, (tab: any) => {
-    const tabId: number = tab[0].id;
-    chrome.tabs.sendMessage(tabId, text, () => {
-    });
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs: Array) => {
+    const tabId: number = tabs[0].id;
+    chrome.tabs.sendMessage(tabId, text, () => { });
   });
 };
 
