@@ -17,7 +17,7 @@ const copyToClipboard = (text: string) => {
 };
 
 const notifyTextToTab = (text: string) => {
-  chrome.tabs.query({ active: true, currentWindow: true }, (tabs: Array) => {
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs: any) => {
     const tabId: number = tabs[0].id;
     chrome.tabs.sendMessage(tabId, text, () => { });
   });
