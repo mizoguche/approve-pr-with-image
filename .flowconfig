@@ -1,5 +1,0 @@
-[libs]
-node_modules/flow-interfaces-chrome/interfaces/
-
-[ignore]
-.*/node_modules/radium/src/.*

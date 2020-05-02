@@ -1,6 +1,6 @@
 {
   "name": "Approve Pull Request with image",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "manifest_version": 2,
   "description": "Chrome extension to approve pull request with LGTM image",
   "homepage_url": "https://github.com/mizoguche/approve-pr-with-image",
@@ -15,11 +15,11 @@
     ],
     "persistent": true
   },
-  "options_page": "dist/option.html",
+  "options_page": "static/option.html",
   "browser_action": {
     "default_icon": "icons/icon19.png",
     "default_title": "browser action demo",
-    "default_popup": "dist/browser_action.html"
+    "default_popup": "static/browser_action.html"
   },
   "permissions": [
     "clipboardWrite",
