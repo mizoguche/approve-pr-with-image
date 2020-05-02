@@ -1,4 +1,3 @@
-"use strict";
 // import Clipboard from "clipboard";
 //
 // import { imageRepository } from "../application/repositories";

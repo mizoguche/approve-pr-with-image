@@ -1,16 +1,22 @@
 {
-  "parser": "babel-eslint",
   "extends": [
-    "airbnb"
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint"
   ],
   "plugins": [
-    "ava",
-    "flowtype",
+    "@typescript-eslint",
     "import",
     "jsx-a11y",
     "security"
   ],
-  "parserOptions": {},
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
   "env": {
     "browser": true,
     "node": true,
@@ -18,9 +24,5 @@
   },
   "globals": {
     "chrome": false
-  },
-  "rules": {
-    "flowtype/define-flow-type": 1,
-    "flowtype/use-flow-type": 1
   }
 }
